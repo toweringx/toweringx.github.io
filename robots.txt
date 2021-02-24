@@ -1,2 +1,2 @@
 User-agent: *
-Sitemap: https://toweringx.vercel.app/sitemap.xml
+Sitemap: https://toweringx.top/sitemap.xml

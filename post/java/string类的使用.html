@@ -1,0 +1,377 @@
+<!DOCTYPE HTML>
+<html lang="zh-cn">
+
+<head><title> String类的使用 - Toweringx</title><meta name="baidu-site-verification" content="jZRrwlvEpq" />
+<meta name="google-site-verification" content="OcQLxKrUrj5A9hpAdCQuoY-K7f5Ja4LUYt35Kxdwq_E" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="description" content="Toweringx的博客" />
+<meta name="keywords" content="Toweringx的博客" />
+<meta name="generator" content="Tale" />
+<meta name="renderer" content="webkit">
+<meta http-equiv="x-dns-prefetch-control" content="on" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta charset="UTF-8">
+<link rel="shortcut icon" href="/img/favicon.ico">
+<link href="https://cdn.staticfile.org/amazeui/2.7.2/css/amazeui.min.css" rel="stylesheet">
+
+<link rel="stylesheet" href="/css/customui.css">
+
+<link href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+
+<style>
+.hljs{display:block;overflow-x:auto;padding:0.5em;color:#383a42;background:#fafafa}.hljs-comment,.hljs-quote{color:#a0a1a7;}.hljs-doctag,.hljs-keyword,.hljs-formula{color:#a626a4}.hljs-section,.hljs-name,.hljs-selector-tag,.hljs-deletion,.hljs-subst{color:#e45649}.hljs-literal{color:#0184bb}.hljs-string,.hljs-regexp,.hljs-addition,.hljs-attribute,.hljs-meta-string{color:#50a14f}.hljs-built_in,.hljs-class .hljs-title{color:#c18401}.hljs-attr,.hljs-variable,.hljs-template-variable,.hljs-type,.hljs-selector-class,.hljs-selector-attr,.hljs-selector-pseudo,.hljs-number{color:#986801}.hljs-symbol,.hljs-bullet,.hljs-link,.hljs-meta,.hljs-selector-id,.hljs-title{color:#4078f2}.hljs-emphasis{font-style:italic}.hljs-strong{font-weight:bold}.hljs-link{text-decoration:underline}
+</style>
+
+</head>
+
+<body id="blog">
+    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Toweringx的博客</a>
+            
+        </div>
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    
+                    
+                    <li class="menu-item">
+                    
+                    
+                    
+                    <a class="menu-item-link" href="https://toweringx.top/">首页</a>
+                    
+
+                    
+
+                    </li>
+                    
+                    <li class="menu-item">
+                    
+                    
+                    
+                    <a class="menu-item-link" href="https://toweringx.top/post.html">归档</a>
+                    
+
+                    
+
+                    </li>
+                    
+                    <li class="menu-item">
+                    
+                    
+                    
+                    <a class="menu-item-link" href="https://toweringx.top/categories.html">分类</a>
+                    
+
+                    
+
+                    </li>
+                    
+                    <li class="menu-item">
+                    
+                    
+                    
+                    <a class="menu-item-link" href="https://toweringx.top/tags.html">标签</a>
+                    
+
+                    
+
+                    </li>
+                    
+                    <li class="menu-item">
+                    
+                    
+                    
+                    <a class="menu-item-link" href="https://toweringx.top/about.html">关于</a>
+                    
+
+                    
+
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+
+    
+<header class="intro-header" style="background-image: url('https://cdn.jsdelivr.net/gh/XiaoZhengr/mycdn/img/20210224140623.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    
+                    <h1>String类的使用</h1>
+
+                    
+                    <span class="meta">@Toweringx &nbsp;2021-02-24</span>
+                    <div class="tags post-tags">
+                        <div class="post-tags">
+                            <a href="https://toweringx.top/tags/java.html">Java</a>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+    
+
+<div class="container">
+    <div class="am-g am-g-fixed blog-fixed">
+        <div class="am-u-lg-12 am-u-sm-12">
+            <article class="am-article blog-article-p article-trigger">
+                <div id="post-content" class="am-article-bd">
+                    <h1 id="javalangstring类的使用">java.lang.String类的使用</h1>
+<h2 id="1概述">1.概述</h2>
+<p>String:字符串，使用一对&quot;&ldquo;引起来表示。
+1.String声明为final的，不可被继承
+2.String实现了Serializable接口：表示字符串是支持序列化的。
+实现了Comparable接口：表示String可以比较大小
+3.String内部定义了final char[] value用于存储字符串数据
+4.通过字面量的方式（区别于new给一个字符串赋值，此时的字符串值声明在字符串常量池中)。
+5.字符串常量池中是不会存储相同内容(使用String类的equals()比较，返回true)的字符串的。</p>
+<h2 id="2string的不可变性">2.String的不可变性</h2>
+<h3 id="21-说明">2.1 说明</h3>
+<p>1.当对字符串重新赋值时，需要重写指定内存区域赋值，不能使用原有的value进行赋值。
+2.当对现的字符串进行连接操作时，也需要重新指定内存区域赋值，不能使用原有的value进行赋值。
+3.当调用String的replace()方法修改指定字符或字符串时，也需要重新指定内存区域赋值，不能使用原有的value进行赋值。</p>
+<h3 id="22-代码举例">2.2 代码举例</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">String s1 <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;abc&#34;</span><span style="color:#f92672">;</span><span style="color:#75715e">//字面量的定义方式
+</span><span style="color:#75715e"></span>String s2 <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;abc&#34;</span><span style="color:#f92672">;</span>
+s1 <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;hello&#34;</span><span style="color:#f92672">;</span>
+
+System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>s1 <span style="color:#f92672">==</span> s2<span style="color:#f92672">);</span><span style="color:#75715e">//比较s1和s2的地址值
+</span><span style="color:#75715e"></span>
+System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>s1<span style="color:#f92672">);</span><span style="color:#75715e">//hello
+</span><span style="color:#75715e"></span>System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>s2<span style="color:#f92672">);</span><span style="color:#75715e">//abc
+</span><span style="color:#75715e"></span>
+System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;*****************&#34;</span><span style="color:#f92672">);</span>
+
+String s3 <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;abc&#34;</span><span style="color:#f92672">;</span>
+s3 <span style="color:#f92672">+=</span> <span style="color:#e6db74">&#34;def&#34;</span><span style="color:#f92672">;</span>
+System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>s3<span style="color:#f92672">);</span><span style="color:#75715e">//abcdef
+</span><span style="color:#75715e"></span>System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>s2<span style="color:#f92672">);</span>
+
+System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;*****************&#34;</span><span style="color:#f92672">);</span>
+
+String s4 <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;abc&#34;</span><span style="color:#f92672">;</span>
+String s5 <span style="color:#f92672">=</span> s4<span style="color:#f92672">.</span><span style="color:#a6e22e">replace</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#39;a&#39;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#39;m&#39;</span><span style="color:#f92672">);</span>
+System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>s4<span style="color:#f92672">);</span><span style="color:#75715e">//abc
+</span><span style="color:#75715e"></span>System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>s5<span style="color:#f92672">);</span><span style="color:#75715e">//mbc
+</span></code></pre></div><h3 id="23-图示">2.3 图示</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/XiaoZhengr/mycdn/img/20200426010854.png" alt=""></p>
+<h2 id="3string实例化的不同方式">3.String实例化的不同方式</h2>
+<h3 id="31-方式说明">3.1 方式说明</h3>
+<p>方式一：通过字面量定义的方式
+方式二：通过new + 构造器的方式</p>
+<h3 id="32-代码举例">3.2 代码举例</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">//通过字面量定义的方式：此时的s1和s2的数据javaEE声明在方法区中的字符串常量池中。
+</span><span style="color:#75715e"></span>String s1 <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;javaEE&#34;</span><span style="color:#f92672">;</span>
+String s2 <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;javaEE&#34;</span><span style="color:#f92672">;</span>
+<span style="color:#75715e">//通过new + 构造器的方式:此时的s3和s4保存的地址值，是数据在堆空间中开辟空间以后对应的地址值。
+</span><span style="color:#75715e"></span>String s3 <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> String<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;javaEE&#34;</span><span style="color:#f92672">);</span>
+String s4 <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> String<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;javaEE&#34;</span><span style="color:#f92672">);</span>
+
+System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>s1 <span style="color:#f92672">==</span> s2<span style="color:#f92672">);</span><span style="color:#75715e">//true
+</span><span style="color:#75715e"></span>System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>s1 <span style="color:#f92672">==</span> s3<span style="color:#f92672">);</span><span style="color:#75715e">//false
+</span><span style="color:#75715e"></span>System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>s1 <span style="color:#f92672">==</span> s4<span style="color:#f92672">);</span><span style="color:#75715e">//false
+</span><span style="color:#75715e"></span>System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>s3 <span style="color:#f92672">==</span> s4<span style="color:#f92672">);</span><span style="color:#75715e">//false
+</span></code></pre></div><h3 id="33-例题">3.3 例题</h3>
+<p>String s = new String(&ldquo;abc&rdquo;);方式创建对象，在内存中创建了几个对象？
+两个:一个是堆空间中new结构，另一个是char[]对应的常量池中的数据：&ldquo;abc&rdquo;</p>
+<h3 id="34-图示">3.4 图示</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/XiaoZhengr/mycdn/img/20200426011856.png" alt=""></p>
+<h2 id="4字符串拼接方式赋值的对比">4.字符串拼接方式赋值的对比</h2>
+<h3 id="41-说明">4.1 说明</h3>
+<p>1.常量与常量的拼接结果在常量池。且常量池中不会存在相同内容的常量。
+2.只要其中一个是变量，结果就在堆中。
+3.如果拼接的结果调用intern()方法，返回值就在常量池中</p>
+<h3 id="42-代码举例">4.2 代码举例</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">String s1 <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;javaEE&#34;</span><span style="color:#f92672">;</span>
+String s2 <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;hadoop&#34;</span><span style="color:#f92672">;</span>
+
+String s3 <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;javaEEhadoop&#34;</span><span style="color:#f92672">;</span>
+String s4 <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;javaEE&#34;</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;hadoop&#34;</span><span style="color:#f92672">;</span>
+String s5 <span style="color:#f92672">=</span> s1 <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;hadoop&#34;</span><span style="color:#f92672">;</span>
+String s6 <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;javaEE&#34;</span> <span style="color:#f92672">+</span> s2<span style="color:#f92672">;</span>
+String s7 <span style="color:#f92672">=</span> s1 <span style="color:#f92672">+</span> s2<span style="color:#f92672">;</span>
+
+System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>s3 <span style="color:#f92672">==</span> s4<span style="color:#f92672">);</span><span style="color:#75715e">//true
+</span><span style="color:#75715e"></span>System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>s3 <span style="color:#f92672">==</span> s5<span style="color:#f92672">);</span><span style="color:#75715e">//false
+</span><span style="color:#75715e"></span>System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>s3 <span style="color:#f92672">==</span> s6<span style="color:#f92672">);</span><span style="color:#75715e">//false
+</span><span style="color:#75715e"></span>System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>s3 <span style="color:#f92672">==</span> s7<span style="color:#f92672">);</span><span style="color:#75715e">//false
+</span><span style="color:#75715e"></span>System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>s5 <span style="color:#f92672">==</span> s6<span style="color:#f92672">);</span><span style="color:#75715e">//false
+</span><span style="color:#75715e"></span>System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>s5 <span style="color:#f92672">==</span> s7<span style="color:#f92672">);</span><span style="color:#75715e">//false
+</span><span style="color:#75715e"></span>System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>s6 <span style="color:#f92672">==</span> s7<span style="color:#f92672">);</span><span style="color:#75715e">//false
+</span><span style="color:#75715e"></span>
+String s8 <span style="color:#f92672">=</span> s6<span style="color:#f92672">.</span><span style="color:#a6e22e">intern</span><span style="color:#f92672">();</span><span style="color:#75715e">//返回值得到的s8使用的常量值中已经存在的“javaEEhadoop”
+</span><span style="color:#75715e"></span>System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>s3 <span style="color:#f92672">==</span> s8<span style="color:#f92672">);</span><span style="color:#75715e">//true
+</span><span style="color:#75715e"></span><span style="color:#f92672">****************************</span>
+String s1 <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;javaEEhadoop&#34;</span><span style="color:#f92672">;</span>
+String s2 <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;javaEE&#34;</span><span style="color:#f92672">;</span>
+String s3 <span style="color:#f92672">=</span> s2 <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;hadoop&#34;</span><span style="color:#f92672">;</span>
+System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>s1 <span style="color:#f92672">==</span> s3<span style="color:#f92672">);</span><span style="color:#75715e">//false
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">final</span> String s4 <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;javaEE&#34;</span><span style="color:#f92672">;</span><span style="color:#75715e">//s4:常量
+</span><span style="color:#75715e"></span>String s5 <span style="color:#f92672">=</span> s4 <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;hadoop&#34;</span><span style="color:#f92672">;</span>
+System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>s1 <span style="color:#f92672">==</span> s5<span style="color:#f92672">);</span><span style="color:#75715e">//true
+</span></code></pre></div><h2 id="5常用方法">5.常用方法：</h2>
+<p>int length()：返回字符串的长度： return value.length
+char charAt(int index)： 返回某索引处的字符return value[index]
+boolean isEmpty()：判断是否是空字符串：return value.length == 0
+String toLowerCase()：使用默认语言环境，将 String 中的所字符转换为小写
+String toUpperCase()：使用默认语言环境，将 String 中的所字符转换为大写
+String trim()：返回字符串的副本，忽略前导空白和尾部空白
+boolean equals(Object obj)：比较字符串的内容是否相同
+boolean equalsIgnoreCase(String anotherString)：与equals方法类似，忽略大小写
+String concat(String str)：将指定字符串连接到此字符串的结尾。 等价于用“+”
+int compareTo(String anotherString)：比较两个字符串的大小
+String substring(int beginIndex)：返回一个新的字符串，它是此字符串的从beginIndex开始截取到最后的一个子字符串。
+String substring(int beginIndex, int endIndex) ：返回一个新字符串，它是此字符串从beginIndex开始截取到endIndex(不包含)的一个子字符串。</p>
+<p>boolean endsWith(String suffix)：测试此字符串是否以指定的后缀结束
+boolean startsWith(String prefix)：测试此字符串是否以指定的前缀开始
+boolean startsWith(String prefix, int toffset)：测试此字符串从指定索引开始的子字符串是否以指定前缀开始</p>
+<p>boolean contains(CharSequence s)：当且仅当此字符串包含指定的 char 值序列时，返回 true
+int indexOf(String str)：返回指定子字符串在此字符串中第一次出现处的索引
+int indexOf(String str, int fromIndex)：返回指定子字符串在此字符串中第一次出现处的索引，从指定的索引开始
+int lastIndexOf(String str)：返回指定子字符串在此字符串中最右边出现处的索引
+int lastIndexOf(String str, int fromIndex)：返回指定子字符串在此字符串中最后一次出现处的索引，从指定的索引开始反向搜索</p>
+<p>注：indexOf和lastIndexOf方法如果未找到都是返回-1</p>
+<p>替换：
+String replace(char oldChar, char newChar)：返回一个新的字符串，它是通过用 newChar 替换此字符串中出现的所 oldChar 得到的。
+String replace(CharSequence target, CharSequence replacement)：使用指定的字面值替换序列替换此字符串所匹配字面值目标序列的子字符串。
+String replaceAll(String regex, String replacement)：使用给定的 replacement 替换此字符串所匹配给定的正则表达式的子字符串。
+String replaceFirst(String regex, String replacement)：使用给定的 replacement 替换此字符串匹配给定的正则表达式的第一个子字符串。
+匹配:
+boolean matches(String regex)：告知此字符串是否匹配给定的正则表达式。
+切片：
+String[] split(String regex)：根据给定正则表达式的匹配拆分此字符串。
+String[] split(String regex, int limit)：根据匹配给定的正则表达式来拆分此字符串，最多不超过limit个，如果超过了，剩下的全部都放到最后一个元素中。</p>
+<h2 id="6string与其它结构的转换">6.String与其它结构的转换</h2>
+<h3 id="61-与基本数据类型包装类之间的转换">6.1 与基本数据类型、包装类之间的转换</h3>
+<p>String &ndash;&gt; 基本数据类型、包装类：调用包装类的静态方法：parseXxx(str)
+基本数据类型、包装类 &ndash;&gt; String:调用String重载的valueOf(xxx)</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">test1</span><span style="color:#f92672">(){</span>
+    String str1 <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;123&#34;</span><span style="color:#f92672">;</span>
+<span style="color:#75715e">//   int num = (int)str1;//错误的
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">int</span> num <span style="color:#f92672">=</span> Integer<span style="color:#f92672">.</span><span style="color:#a6e22e">parseInt</span><span style="color:#f92672">(</span>str1<span style="color:#f92672">);</span>
+    String str2 <span style="color:#f92672">=</span> String<span style="color:#f92672">.</span><span style="color:#a6e22e">valueOf</span><span style="color:#f92672">(</span>num<span style="color:#f92672">);</span><span style="color:#75715e">//&#34;123&#34;
+</span><span style="color:#75715e"></span>    String str3 <span style="color:#f92672">=</span> num <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;&#34;</span><span style="color:#f92672">;</span>
+    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>str1 <span style="color:#f92672">==</span> str3<span style="color:#f92672">);</span>
+
+<span style="color:#f92672">}</span>
+</code></pre></div><h3 id="62-与字符数组之间的转换">6.2 与字符数组之间的转换</h3>
+<p>String &ndash;&gt; char[]:调用String的toCharArray()
+char[] &ndash;&gt; String:调用String的构造器</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">test2</span><span style="color:#f92672">(){</span>
+String str1 <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;abc123&#34;</span><span style="color:#f92672">;</span>  <span style="color:#75715e">//题目： a21cb3
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">char</span><span style="color:#f92672">[]</span> charArray <span style="color:#f92672">=</span> str1<span style="color:#f92672">.</span><span style="color:#a6e22e">toCharArray</span><span style="color:#f92672">();</span>
+<span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span> i <span style="color:#f92672">&lt;</span> charArray<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">;</span> i<span style="color:#f92672">++)</span> <span style="color:#f92672">{</span>
+    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>charArray<span style="color:#f92672">[</span>i<span style="color:#f92672">]);</span>
+<span style="color:#f92672">}</span>
+
+<span style="color:#66d9ef">char</span><span style="color:#f92672">[]</span> arr <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">char</span><span style="color:#f92672">[]{</span><span style="color:#e6db74">&#39;h&#39;</span><span style="color:#f92672">,</span><span style="color:#e6db74">&#39;e&#39;</span><span style="color:#f92672">,</span><span style="color:#e6db74">&#39;l&#39;</span><span style="color:#f92672">,</span><span style="color:#e6db74">&#39;l&#39;</span><span style="color:#f92672">,</span><span style="color:#e6db74">&#39;o&#39;</span><span style="color:#f92672">};</span>
+String str2 <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> String<span style="color:#f92672">(</span>arr<span style="color:#f92672">);</span>
+System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>str2<span style="color:#f92672">);</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h3 id="63-与字节数组之间的转换">6.3 与字节数组之间的转换</h3>
+<p>编码：String &ndash;&gt; byte[]:调用String的getBytes()
+解码：byte[] &ndash;&gt; String:调用String的构造器</p>
+<p>编码：字符串 &ndash;&gt;字节  (看得懂 &mdash;&gt;看不懂的二进制数据)
+解码：编码的逆过程，字节 &ndash;&gt; 字符串 （看不懂的二进制数据 &mdash;&gt; 看得懂</p>
+<p>说明：解码时，要求解码使用的字符集必须与编码时使用的字符集一致，否则会出现乱码。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">test3</span><span style="color:#f92672">()</span> <span style="color:#66d9ef">throws</span> UnsupportedEncodingException <span style="color:#f92672">{</span>
+String str1 <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;abc123中国&#34;</span><span style="color:#f92672">;</span>
+<span style="color:#66d9ef">byte</span><span style="color:#f92672">[]</span> bytes <span style="color:#f92672">=</span> str1<span style="color:#f92672">.</span><span style="color:#a6e22e">getBytes</span><span style="color:#f92672">();</span><span style="color:#75715e">//使用默认的字符集，进行编码。
+</span><span style="color:#75715e"></span>System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>Arrays<span style="color:#f92672">.</span><span style="color:#a6e22e">toString</span><span style="color:#f92672">(</span>bytes<span style="color:#f92672">));</span>
+<span style="color:#66d9ef">byte</span><span style="color:#f92672">[]</span> gbks <span style="color:#f92672">=</span> str1<span style="color:#f92672">.</span><span style="color:#a6e22e">getBytes</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;gbk&#34;</span><span style="color:#f92672">);</span><span style="color:#75715e">//使用gbk字符集进行编码。
+</span><span style="color:#75715e"></span>System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>Arrays<span style="color:#f92672">.</span><span style="color:#a6e22e">toString</span><span style="color:#f92672">(</span>gbks<span style="color:#f92672">));</span>
+System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;******************&#34;</span><span style="color:#f92672">);</span>
+String str2 <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> String<span style="color:#f92672">(</span>bytes<span style="color:#f92672">);</span><span style="color:#75715e">//使用默认的字符集，进行解码。
+</span><span style="color:#75715e"></span>System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>str2<span style="color:#f92672">);</span>
+String str3 <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> String<span style="color:#f92672">(</span>gbks<span style="color:#f92672">);</span>
+System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>str3<span style="color:#f92672">);</span><span style="color:#75715e">//出现乱码。原因：编码集和解码集不一致！
+</span><span style="color:#75715e"></span>String str4 <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> String<span style="color:#f92672">(</span>gbks<span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;gbk&#34;</span><span style="color:#f92672">);</span>
+System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>str4<span style="color:#f92672">);</span><span style="color:#75715e">//没出现乱码。原因：编码集和解码集一致！
+</span><span style="color:#75715e"></span><span style="color:#f92672">}</span>
+</code></pre></div><h3 id="64-与stringbufferstringbuilder之间的转换">6.4 与StringBuffer、StringBuilder之间的转换</h3>
+<p>String &ndash;&gt;StringBuffer、StringBuilder:调用StringBuffer、StringBuilder构造器
+StringBuffer、StringBuilder &ndash;&gt;String:①调用String构造器；②StringBuffer、StringBuilder的toString()</p>
+<h2 id="7jvm中字符串常量池存放位置说明">7.JVM中字符串常量池存放位置说明：</h2>
+<p>jdk 1.6 (jdk 6.0 ,java 6.0):字符串常量池存储在方法区（永久区）
+jdk 1.7:字符串常量池存储在堆空间
+jdk 1.8:字符串常量池存储在方法区（元空间）</p>
+
+                </div>
+            </article>
+             <div id="directory-content" class="directory-content">
+             <div id="directory"></div>
+            </div>
+            <hr>
+        </div>
+    </div>
+</div>
+
+	
+	
+<footer class="blog-footer">
+    <div class="blog-text-center">© 2019 <a href="/">Toweringx</a> 由 
+        <a href="https://github.com/gohugoio/hugo" target="_blank">Hugo</a>
+         强力驱动 Theme is 
+        <a href="https://github.com/Heemooo/amaze" target="_blank">Amaze made by heemooo</a>
+    </div>
+</footer>
+<script src="https://cdn.staticfile.org/jquery/3.3.1/jquery.slim.min.js"></script>
+<script src="https://cdn.staticfile.org/highlight.js/9.12.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script>
+    var $body=document.body;var $toggle=document.querySelector(".navbar-toggle");var $navbar=document.querySelector("#huxblog_navbar");var $collapse=document.querySelector(".navbar-collapse");var __HuxNav__={close:function(){$navbar.className=" ";setTimeout(function(){if($navbar.className.indexOf("in")<0){$collapse.style.height="0px"}},400)},open:function(){$collapse.style.height="auto";$navbar.className+=" in"}};$toggle.addEventListener("click",function(a){if($navbar.className.indexOf("in")>0){__HuxNav__.close()}else{__HuxNav__.open()}});document.addEventListener("click",function(a){if(a.target==$toggle){return}if(a.target.className=="icon-bar"){return}__HuxNav__.close()});jQuery(document).ready(function(c){var d=1170;if(c(window).width()>d){var b=c(".navbar-custom").height(),a=c(".intro-header .container").height();c(window).on("scroll",{previousTop:0},function(){var e=c(window).scrollTop(),f=c(".side-catalog");if(e<this.previousTop){if(e>0&&c(".navbar-custom").hasClass("is-fixed")){c(".navbar-custom").addClass("is-visible")}else{c(".navbar-custom").removeClass("is-visible is-fixed")}}else{c(".navbar-custom").removeClass("is-visible");if(e>b&&!c(".navbar-custom").hasClass("is-fixed")){c(".navbar-custom").addClass("is-fixed")}}this.previousTop=e;f.show();if(e>(a+41)){f.addClass("fixed")}else{f.removeClass("fixed")}})}});
+</script>
+<script>
+    $(document).ready(function() {
+        $('pre code').each(function(i, block) {
+            hljs.highlightBlock(block)
+        })
+        $('table').addClass('am-table')
+    });
+</script>
+<script src="/js/headBand.min.js"></script>
+<script>
+    $('.headBand').headBand({
+        'background':'#008aff',
+        'height':"3"
+    });
+</script>
+<script src="https://cdn.bootcss.com/headroom/0.9.4/headroom.min.js"></script>
+<script>
+       var postDirectoryBuild=function(){var b=function a(l,h){var k=[],e=typeof h==="object",g=typeof h==="string",j,f,d;for(f=0,d=l.length;f<d;f++){j=l[f];if((j.nodeType===1||j.nodeType===9)&&(!h||e&&h.test(j.tagName.toLowerCase())||g&&j.tagName.toLowerCase()===h)){k.push(j)}}return k},c=function(e,f,r){var n=[],m=[],h,p,d,j,l,s,o,g,k,q;h=(function(i,C,A){var w=b(i.childNodes,/^h\d$/),x=[],v=1,B=1,z=0,D=1,t="directory"+(Math.random()+"").replace(/\D/,""),B,y,u;while(w.length){u=w.shift();C.push(u.innerHTML);y=+u.tagName.match(/\d/)[0];if(y>v){x.push(1);B+=1}else{if(y===B||y>B&&y<=v){x.push(0);B=B}else{if(y<B){x.push(y-B);B=y}}}z+=x[x.length-1];v=y;u.id=u.id||(t+D++);A.push(u.id)}if(z!==0&&x[0]===1){x[0]=0}return x})(e,n,m);j=p=document.createElement("ul");q=document.createElement("span");q.style="color:#F38181;font-weight:600;";q.innerHTML="目录";p.appendChild(q);dirNum=[];for(g=0,k=h.length;g<k;g++){d=h[g];if(d===1){l=document.createElement("ul");if(!j.lastElementChild){j.appendChild(document.createElement("li"))}j.lastElementChild.appendChild(l);j=l;dirNum.push(0)}else{if(d<0){d*=2;while(d++){if(d%2){dirNum.pop()}j=j.parentNode}}}dirNum[dirNum.length-1]++;s=document.createElement("li");o=document.createElement("a");o.href="#"+m[g];o.innerHTML=!r?n[g]:dirNum.join(".")+" "+n[g];s.appendChild(o);j.appendChild(s)}f.appendChild(p)};c(document.getElementById("post-content"),document.getElementById("directory"),false)};postDirectoryBuild();
+</script>
+<script>
+    var postDirectory = new Headroom(document.getElementById("directory-content"), {
+        tolerance: 5,
+        offset: 240,
+        classes: {
+            initial: "initial",
+            pinned: "pinned",
+            unpinned: "unpinned"
+        }
+    });
+    postDirectory.init();
+</script>
+
+</body>
+
+</html>

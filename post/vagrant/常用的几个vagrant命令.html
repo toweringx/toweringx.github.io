@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html lang="zh-cn">
 
-<head><title> Toweringx的博客</title><meta name="baidu-site-verification" content="jZRrwlvEpq" />
+<head><title> 常用的几个vagrant命令 - Toweringx</title><meta name="baidu-site-verification" content="jZRrwlvEpq" />
 <meta name="google-site-verification" content="OcQLxKrUrj5A9hpAdCQuoY-K7f5Ja4LUYt35Kxdwq_E" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <meta name="description" content="Toweringx的博客" />
@@ -53,7 +53,7 @@
 
                     </li>
                     
-                    <li class="menu-item active">
+                    <li class="menu-item">
                     
                     
                     
@@ -110,12 +110,15 @@
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="post-heading">
                     
-                    <h1>Posts</h1>
+                    <h1>常用的几个vagrant命令</h1>
 
                     
                     <span class="meta">@Toweringx &nbsp;2021-02-24</span>
                     <div class="tags post-tags">
-                        
+                        <div class="post-tags">
+                            <a href="https://toweringx.top/tags/vagrant.html">vagrant</a>
+                            
+                        </div>
                     </div>
                 </div>
             </div>
@@ -125,76 +128,39 @@
 
 
     
-<div class="container-fluid archive-page clearfix">
-    <div class="categorys-item">
-        
-        <div class="categorys-title">2021年2月</div>
-        <div class="post-list-item">
-            <div class="post-list-item-container">
-                <div class="item-label">
-                    <div class="item-title">
-                        <a href="/post/java/%E6%B5%8B%E8%AF%95.html">测试</a>
-                    </div>
-                    <div class="item-meta clearfix">
-                        <div class="item-meta-date">Wed, 24 Feb 2021</div>
-                    </div>
+
+<div class="container">
+    <div class="am-g am-g-fixed blog-fixed">
+        <div class="am-u-lg-12 am-u-sm-12">
+            <article class="am-article blog-article-p article-trigger">
+                <div id="post-content" class="am-article-bd">
+                    <p>$ vagrant init    # 初始化</p>
+<p>$ vagrant up     # 启动虚拟机
+$ vagrant halt    # 关闭虚拟机
+$ vagrant reload   # 重启虚拟机
+$ vagrant ssh    # SSH 至虚拟机
+$ vagrant suspend  # 挂起虚拟机
+$ vagrant resume   # 唤醒虚拟机
+$ vagrant status   # 查看虚拟机运行状态
+$ vagrant destroy  # 销毁当前虚拟机</p>
+<p>#box管理命令
+$ vagrant box list   # 查看本地box列表
+$ vagrant box add   # 添加box到列表</p>
+<p>$ vagrant box remove  # 从box列表移除</p>
+
                 </div>
+            </article>
+             <div id="directory-content" class="directory-content">
+             <div id="directory"></div>
             </div>
+            <hr>
         </div>
-        
-        <div class="post-list-item">
-            <div class="post-list-item-container">
-                <div class="item-label">
-                    <div class="item-title">
-                        <a href="/post/vagrant/%E5%B8%B8%E7%94%A8%E7%9A%84%E5%87%A0%E4%B8%AAvagrant%E5%91%BD%E4%BB%A4.html">常用的几个vagrant命令</a>
-                    </div>
-                    <div class="item-meta clearfix">
-                        <div class="item-meta-date">Wed, 24 Feb 2021</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="post-list-item">
-            <div class="post-list-item-container">
-                <div class="item-label">
-                    <div class="item-title">
-                        <a href="/post/java/string%E7%B1%BB%E7%9A%84%E4%BD%BF%E7%94%A8.html">String类的使用</a>
-                    </div>
-                    <div class="item-meta clearfix">
-                        <div class="item-meta-date">Wed, 24 Feb 2021</div>
-                    </div>
-                </div>
-            </div>
-        </div></div>
+    </div>
 </div>
 
-
-
-
-
-  
-  
-  
-
-  
-  
-
-  
-  
-
-  
-  
-
-  
-  
-
-
-
-
-
 	
-	<footer class="blog-footer">
+	
+<footer class="blog-footer">
     <div class="blog-text-center">© 2019 <a href="/">Toweringx</a> 由 
         <a href="https://github.com/gohugoio/hugo" target="_blank">Hugo</a>
          强力驱动 Theme is 
@@ -222,6 +188,23 @@
         'height':"3"
     });
 </script>
+<script src="https://cdn.bootcss.com/headroom/0.9.4/headroom.min.js"></script>
+<script>
+       var postDirectoryBuild=function(){var b=function a(l,h){var k=[],e=typeof h==="object",g=typeof h==="string",j,f,d;for(f=0,d=l.length;f<d;f++){j=l[f];if((j.nodeType===1||j.nodeType===9)&&(!h||e&&h.test(j.tagName.toLowerCase())||g&&j.tagName.toLowerCase()===h)){k.push(j)}}return k},c=function(e,f,r){var n=[],m=[],h,p,d,j,l,s,o,g,k,q;h=(function(i,C,A){var w=b(i.childNodes,/^h\d$/),x=[],v=1,B=1,z=0,D=1,t="directory"+(Math.random()+"").replace(/\D/,""),B,y,u;while(w.length){u=w.shift();C.push(u.innerHTML);y=+u.tagName.match(/\d/)[0];if(y>v){x.push(1);B+=1}else{if(y===B||y>B&&y<=v){x.push(0);B=B}else{if(y<B){x.push(y-B);B=y}}}z+=x[x.length-1];v=y;u.id=u.id||(t+D++);A.push(u.id)}if(z!==0&&x[0]===1){x[0]=0}return x})(e,n,m);j=p=document.createElement("ul");q=document.createElement("span");q.style="color:#F38181;font-weight:600;";q.innerHTML="目录";p.appendChild(q);dirNum=[];for(g=0,k=h.length;g<k;g++){d=h[g];if(d===1){l=document.createElement("ul");if(!j.lastElementChild){j.appendChild(document.createElement("li"))}j.lastElementChild.appendChild(l);j=l;dirNum.push(0)}else{if(d<0){d*=2;while(d++){if(d%2){dirNum.pop()}j=j.parentNode}}}dirNum[dirNum.length-1]++;s=document.createElement("li");o=document.createElement("a");o.href="#"+m[g];o.innerHTML=!r?n[g]:dirNum.join(".")+" "+n[g];s.appendChild(o);j.appendChild(s)}f.appendChild(p)};c(document.getElementById("post-content"),document.getElementById("directory"),false)};postDirectoryBuild();
+</script>
+<script>
+    var postDirectory = new Headroom(document.getElementById("directory-content"), {
+        tolerance: 5,
+        offset: 240,
+        classes: {
+            initial: "initial",
+            pinned: "pinned",
+            unpinned: "unpinned"
+        }
+    });
+    postDirectory.init();
+</script>
+
 </body>
 
 </html>
