@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>泛型 on Toweringx</title>
+    <link>https://toweringx.top/tags/%E6%B3%9B%E5%9E%8B.html</link>
+    <description>Recent content in 泛型 on Toweringx</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sat, 04 Jan 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://toweringx.top/tags/%E6%B3%9B%E5%9E%8B/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>泛型的用法和注意事项</title>
+      <link>https://toweringx.top/post/java/%E6%B3%9B%E5%9E%8B%E7%9A%84%E7%94%A8%E6%B3%95%E5%92%8C%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9.html</link>
+      <pubDate>Sat, 04 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://toweringx.top/post/java/%E6%B3%9B%E5%9E%8B%E7%9A%84%E7%94%A8%E6%B3%95%E5%92%8C%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9.html</guid>
+      <description>1.泛型的引入背景 ​ 集合容器类在设计阶段/声明阶段不能确定这个容器到底实际存的是什么类型的对象，所以在JDK1.5之前只能把元素类型设计为O</description>
+    </item>
+    
+  </channel>
+</rss>

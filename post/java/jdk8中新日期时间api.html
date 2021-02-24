@@ -1,0 +1,345 @@
+<!DOCTYPE HTML>
+<html lang="zh-cn">
+
+<head><title> JDK8中新日期时间API - Toweringx</title><meta name="baidu-site-verification" content="jZRrwlvEpq" />
+<meta name="google-site-verification" content="OcQLxKrUrj5A9hpAdCQuoY-K7f5Ja4LUYt35Kxdwq_E" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="description" content="Toweringx的博客" />
+<meta name="keywords" content="Toweringx的博客" />
+<meta name="generator" content="Tale" />
+<meta name="renderer" content="webkit">
+<meta http-equiv="x-dns-prefetch-control" content="on" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta charset="UTF-8">
+<link rel="shortcut icon" href="/img/favicon.ico">
+<link href="https://cdn.staticfile.org/amazeui/2.7.2/css/amazeui.min.css" rel="stylesheet">
+
+<link rel="stylesheet" href="/css/customui.css">
+
+<link href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+
+<style>
+.hljs{display:block;overflow-x:auto;padding:0.5em;color:#383a42;background:#fafafa}.hljs-comment,.hljs-quote{color:#a0a1a7;}.hljs-doctag,.hljs-keyword,.hljs-formula{color:#a626a4}.hljs-section,.hljs-name,.hljs-selector-tag,.hljs-deletion,.hljs-subst{color:#e45649}.hljs-literal{color:#0184bb}.hljs-string,.hljs-regexp,.hljs-addition,.hljs-attribute,.hljs-meta-string{color:#50a14f}.hljs-built_in,.hljs-class .hljs-title{color:#c18401}.hljs-attr,.hljs-variable,.hljs-template-variable,.hljs-type,.hljs-selector-class,.hljs-selector-attr,.hljs-selector-pseudo,.hljs-number{color:#986801}.hljs-symbol,.hljs-bullet,.hljs-link,.hljs-meta,.hljs-selector-id,.hljs-title{color:#4078f2}.hljs-emphasis{font-style:italic}.hljs-strong{font-weight:bold}.hljs-link{text-decoration:underline}
+</style>
+
+</head>
+
+<body id="blog">
+    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Toweringx的博客</a>
+            
+        </div>
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    
+                    
+                    <li class="menu-item">
+                    
+                    
+                    
+                    <a class="menu-item-link" href="https://toweringx.top/">首页</a>
+                    
+
+                    
+
+                    </li>
+                    
+                    <li class="menu-item">
+                    
+                    
+                    
+                    <a class="menu-item-link" href="https://toweringx.top/post.html">归档</a>
+                    
+
+                    
+
+                    </li>
+                    
+                    <li class="menu-item">
+                    
+                    
+                    
+                    <a class="menu-item-link" href="https://toweringx.top/categories.html">分类</a>
+                    
+
+                    
+
+                    </li>
+                    
+                    <li class="menu-item">
+                    
+                    
+                    
+                    <a class="menu-item-link" href="https://toweringx.top/tags.html">标签</a>
+                    
+
+                    
+
+                    </li>
+                    
+                    <li class="menu-item">
+                    
+                    
+                    
+                    <a class="menu-item-link" href="https://toweringx.top/about.html">关于</a>
+                    
+
+                    
+
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+
+    
+<header class="intro-header" style="background-image: url('https://cdn.jsdelivr.net/gh/XiaoZhengr/mycdn/img/20210224140623.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    
+                    <h1>JDK8中新日期时间API</h1>
+
+                    
+                    <span class="meta">@Toweringx &nbsp;2020-01-05</span>
+                    <div class="tags post-tags">
+                        <div class="post-tags">
+                            <a href="https://toweringx.top/tags/java.html">Java</a>
+                            <a href="https://toweringx.top/tags/date.html">Date</a>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+    
+
+<div class="container">
+    <div class="am-g am-g-fixed blog-fixed">
+        <div class="am-u-lg-12 am-u-sm-12">
+            <article class="am-article blog-article-p article-trigger">
+                <div id="post-content" class="am-article-bd">
+                    <h1 id="1日期时间api的迭代">1.日期时间API的迭代：</h1>
+<p>第一代：jdk 1.0 Date类</p>
+<p>第二代：jdk 1.1 Calendar类，一定程度上替换Date类</p>
+<p>第三代：jdk 1.8 提出了新的一套API</p>
+<h1 id="2前两代存在的问题举例">2.前两代存在的问题举例：</h1>
+<p>可变性：像日期和时间这样的类应该是不可变的。</p>
+<p>偏移性：Date中的年份是从1900开始的，而月份都从0开始。</p>
+<p>格式化：格式化只对Date用，Calendar则不行。</p>
+<p>此外，它们也不是线程安全的；不能处理闰秒等。</p>
+<h1 id="3java-8-中新的日期时间api涉及到的包">3.java 8 中新的日期时间API涉及到的包</h1>
+<p><img src="https://cdn.jsdelivr.net/gh/XiaoZhengr/mycdn/img/20200425205554.png" alt=""></p>
+<h1 id="4本地日期本地时间本地日期时间的使用localdate--localtime--localdatetime">4.本地日期、本地时间、本地日期时间的使用：LocalDate / LocalTime / LocalDateTime</h1>
+<h3 id="41-说明">4.1 说明：</h3>
+<ul>
+<li>① 分别表示使用 ISO-8601日历系统的日期、时间、日期和时间。它们提供了简单的本地日期或时间，并不包含当前的时间信息，也不包含与时区相关的信息。</li>
+<li>② LocalDateTime相较于LocalDate、LocalTime，使用频率要高</li>
+<li>③ 类似于Calendar</li>
+</ul>
+<h3 id="42-常用方法">4.2 常用方法：</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/XiaoZhengr/mycdn/img/20200425205905.png" alt=""></p>
+<h1 id="5时间点instant">5.时间点：Instant</h1>
+<h3 id="51-说明">5.1 说明：</h3>
+<ul>
+<li>① 时间线上的一个瞬时点。 概念上讲，它只是简单的表示自1970年1月1日0时0分0秒（UTC开始的秒数。）</li>
+<li>② 类似于 java.util.Date类</li>
+</ul>
+<h3 id="52-常用方法">5.2 常用方法：</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/XiaoZhengr/mycdn/img/20200425205943.png" alt=""></p>
+<h1 id="6日期时间格式化类datetimeformatter">6.日期时间格式化类：DateTimeFormatter</h1>
+<h3 id="61-说明">6.1 说明：</h3>
+<ul>
+<li>① 格式化或解析日期、时间</li>
+<li>② 类似于SimpleDateFormat</li>
+</ul>
+<h3 id="62-常用方法">6.2 常用方法：</h3>
+<ul>
+<li>
+<p>① 实例化方式：
+预定义的标准格式。如：ISO_LOCAL_DATE_TIME;ISO_LOCAL_DATE;ISO_LOCAL_TIME
+本地化相关的格式。如：ofLocalizedDateTime(FormatStyle.LONG)
+自定义的格式。如：ofPattern(“yyyy-MM-dd hh:mm:ss”)</p>
+</li>
+<li>
+<p>② 常用方法：</p>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/XiaoZhengr/mycdn/img/20200425210006.png" alt=""></p>
+<p>特别的：自定义的格式。如：ofPattern(“yyyy-MM-dd hh:mm:ss”)
+//  重点：自定义的格式。如：ofPattern(“yyyy-MM-dd hh:mm:ss”)</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">//格式化
+</span><span style="color:#75715e"></span>String str4 <span style="color:#f92672">=</span> formatter3<span style="color:#f92672">.</span><span style="color:#a6e22e">format</span><span style="color:#f92672">(</span>LocalDateTime<span style="color:#f92672">.</span><span style="color:#a6e22e">now</span><span style="color:#f92672">());</span>
+System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>str4<span style="color:#f92672">);</span><span style="color:#75715e">//2019-02-18 03:52:09
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">//解析
+</span><span style="color:#75715e"></span>TemporalAccessor accessor <span style="color:#f92672">=</span> formatter3<span style="color:#f92672">.</span><span style="color:#a6e22e">parse</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;2019-02-18 03:52:09&#34;</span><span style="color:#f92672">);</span>
+System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>accessor<span style="color:#f92672">);</span>
+</code></pre></div><h1 id="7其它api的使用">7.其它API的使用</h1>
+<h3 id="71-带时区的日期时间zoneddatetime--zoneid">7.1 带时区的日期时间：ZonedDateTime / ZoneId</h3>
+<p>举例：
+// ZoneId:类中包含了所的时区信息</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">test1</span><span style="color:#f92672">(){</span>
+		<span style="color:#75715e">//getAvailableZoneIds():获取所的ZoneId
+</span><span style="color:#75715e"></span>		Set<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> zoneIds <span style="color:#f92672">=</span> ZoneId<span style="color:#f92672">.</span><span style="color:#a6e22e">getAvailableZoneIds</span><span style="color:#f92672">();</span>
+		<span style="color:#66d9ef">for</span><span style="color:#f92672">(</span>String s <span style="color:#f92672">:</span> zoneIds<span style="color:#f92672">){</span>
+			System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>s<span style="color:#f92672">);</span>
+		<span style="color:#f92672">}</span>
+		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">();</span>
+		
+
+	<span style="color:#75715e">//获取“Asia/Tokyo”时区对应的时间
+</span><span style="color:#75715e"></span>	LocalDateTime localDateTime <span style="color:#f92672">=</span> LocalDateTime<span style="color:#f92672">.</span><span style="color:#a6e22e">now</span><span style="color:#f92672">(</span>ZoneId<span style="color:#f92672">.</span><span style="color:#a6e22e">of</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Asia/Tokyo&#34;</span><span style="color:#f92672">));</span>
+	System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>localDateTime<span style="color:#f92672">);</span>		
+	<span style="color:#f92672">}</span>
+<span style="color:#75715e">//ZonedDateTime:带时区的日期时间
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">@Test</span>
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">test2</span><span style="color:#f92672">(){</span>
+		<span style="color:#75715e">//now():获取本时区的ZonedDateTime对象
+</span><span style="color:#75715e"></span>		ZonedDateTime zonedDateTime <span style="color:#f92672">=</span> ZonedDateTime<span style="color:#f92672">.</span><span style="color:#a6e22e">now</span><span style="color:#f92672">();</span>
+		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>zonedDateTime<span style="color:#f92672">);</span>
+		<span style="color:#75715e">//now(ZoneId id):获取指定时区的ZonedDateTime对象
+</span><span style="color:#75715e"></span>		ZonedDateTime zonedDateTime1 <span style="color:#f92672">=</span> ZonedDateTime<span style="color:#f92672">.</span><span style="color:#a6e22e">now</span><span style="color:#f92672">(</span>ZoneId<span style="color:#f92672">.</span><span style="color:#a6e22e">of</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Asia/Tokyo&#34;</span><span style="color:#f92672">));</span>
+		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>zonedDateTime1<span style="color:#f92672">);</span>
+	<span style="color:#f92672">}</span>
+</code></pre></div><h3 id="72-时间间隔duration--用于计算两个时间间隔以秒和纳秒为基准">7.2 时间间隔：Duration&ndash;用于计算两个“时间”间隔，以秒和纳秒为基准</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/XiaoZhengr/mycdn/img/20200425210039.png" alt=""></p>
+<p>举例：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">test3</span><span style="color:#f92672">(){</span>
+		LocalTime localTime <span style="color:#f92672">=</span> LocalTime<span style="color:#f92672">.</span><span style="color:#a6e22e">now</span><span style="color:#f92672">();</span>
+		LocalTime localTime1 <span style="color:#f92672">=</span> LocalTime<span style="color:#f92672">.</span><span style="color:#a6e22e">of</span><span style="color:#f92672">(</span>15<span style="color:#f92672">,</span> 23<span style="color:#f92672">,</span> 32<span style="color:#f92672">);</span>
+		<span style="color:#75715e">//between():静态方法，返回Duration对象，表示两个时间的间隔
+</span><span style="color:#75715e"></span>		Duration duration <span style="color:#f92672">=</span> Duration<span style="color:#f92672">.</span><span style="color:#a6e22e">between</span><span style="color:#f92672">(</span>localTime1<span style="color:#f92672">,</span> localTime<span style="color:#f92672">);</span>
+		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>duration<span style="color:#f92672">);</span>
+	System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>duration<span style="color:#f92672">.</span><span style="color:#a6e22e">getSeconds</span><span style="color:#f92672">());</span>
+	System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>duration<span style="color:#f92672">.</span><span style="color:#a6e22e">getNano</span><span style="color:#f92672">());</span>
+	
+	LocalDateTime localDateTime <span style="color:#f92672">=</span> LocalDateTime<span style="color:#f92672">.</span><span style="color:#a6e22e">of</span><span style="color:#f92672">(</span>2016<span style="color:#f92672">,</span> 6<span style="color:#f92672">,</span> 12<span style="color:#f92672">,</span> 15<span style="color:#f92672">,</span> 23<span style="color:#f92672">,</span> 32<span style="color:#f92672">);</span>
+	LocalDateTime localDateTime1 <span style="color:#f92672">=</span> LocalDateTime<span style="color:#f92672">.</span><span style="color:#a6e22e">of</span><span style="color:#f92672">(</span>2017<span style="color:#f92672">,</span> 6<span style="color:#f92672">,</span> 12<span style="color:#f92672">,</span> 15<span style="color:#f92672">,</span> 23<span style="color:#f92672">,</span> 32<span style="color:#f92672">);</span>
+	
+	Duration duration1 <span style="color:#f92672">=</span> Duration<span style="color:#f92672">.</span><span style="color:#a6e22e">between</span><span style="color:#f92672">(</span>localDateTime1<span style="color:#f92672">,</span> localDateTime<span style="color:#f92672">);</span>
+	System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>duration1<span style="color:#f92672">.</span><span style="color:#a6e22e">toDays</span><span style="color:#f92672">());</span>
+	
+<span style="color:#f92672">}</span>
+</code></pre></div><h3 id="73-日期间隔period---用于计算两个日期间隔以年月日衡量">7.3 日期间隔：Period &ndash;用于计算两个“日期”间隔，以年、月、日衡量</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/XiaoZhengr/mycdn/img/20200425210115.png" alt=""></p>
+<p>举例：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">test4</span><span style="color:#f92672">(){</span>
+	LocalDate localDate <span style="color:#f92672">=</span> LocalDate<span style="color:#f92672">.</span><span style="color:#a6e22e">now</span><span style="color:#f92672">();</span>
+	LocalDate localDate1 <span style="color:#f92672">=</span> LocalDate<span style="color:#f92672">.</span><span style="color:#a6e22e">of</span><span style="color:#f92672">(</span>2028<span style="color:#f92672">,</span> 3<span style="color:#f92672">,</span> 18<span style="color:#f92672">);</span>
+	Period period <span style="color:#f92672">=</span> Period<span style="color:#f92672">.</span><span style="color:#a6e22e">between</span><span style="color:#f92672">(</span>localDate<span style="color:#f92672">,</span> localDate1<span style="color:#f92672">);</span>
+	System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>period<span style="color:#f92672">);</span>
+	
+	System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>period<span style="color:#f92672">.</span><span style="color:#a6e22e">getYears</span><span style="color:#f92672">());</span>
+	System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>period<span style="color:#f92672">.</span><span style="color:#a6e22e">getMonths</span><span style="color:#f92672">());</span>
+	System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>period<span style="color:#f92672">.</span><span style="color:#a6e22e">getDays</span><span style="color:#f92672">());</span>
+	
+	Period period1 <span style="color:#f92672">=</span> period<span style="color:#f92672">.</span><span style="color:#a6e22e">withYears</span><span style="color:#f92672">(</span>2<span style="color:#f92672">);</span>
+	System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>period1<span style="color:#f92672">);</span>
+	
+<span style="color:#f92672">}</span>
+</code></pre></div><h3 id="74-日期时间校正器temporaladjuster">7.4 日期时间校正器：TemporalAdjuster</h3>
+<p>举例：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">test5</span><span style="color:#f92672">(){</span>
+		<span style="color:#75715e">//获取当前日期的下一个周日是哪天？
+</span><span style="color:#75715e"></span>	TemporalAdjuster temporalAdjuster <span style="color:#f92672">=</span>	TemporalAdjusters<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span><span style="color:#f92672">(</span>DayOfWeek<span style="color:#f92672">.</span><span style="color:#a6e22e">SUNDAY</span><span style="color:#f92672">);</span>
+	LocalDateTime localDateTime <span style="color:#f92672">=</span>	LocalDateTime<span style="color:#f92672">.</span><span style="color:#a6e22e">now</span><span style="color:#f92672">().</span><span style="color:#a6e22e">with</span><span style="color:#f92672">(</span>temporalAdjuster<span style="color:#f92672">);</span>
+	System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>localDateTime<span style="color:#f92672">);</span>
+	
+	<span style="color:#75715e">//获取下一个工作日是哪天？
+</span><span style="color:#75715e"></span>	LocalDate localDate <span style="color:#f92672">=</span> LocalDate<span style="color:#f92672">.</span><span style="color:#a6e22e">now</span><span style="color:#f92672">().</span><span style="color:#a6e22e">with</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> TemporalAdjuster<span style="color:#f92672">(){</span>
+
+		<span style="color:#a6e22e">@Override</span>
+		<span style="color:#66d9ef">public</span> Temporal <span style="color:#a6e22e">adjustInto</span><span style="color:#f92672">(</span>Temporal temporal<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+			LocalDate date <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>LocalDate<span style="color:#f92672">)</span>temporal<span style="color:#f92672">;</span>
+			<span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>date<span style="color:#f92672">.</span><span style="color:#a6e22e">getDayOfWeek</span><span style="color:#f92672">().</span><span style="color:#a6e22e">equals</span><span style="color:#f92672">(</span>DayOfWeek<span style="color:#f92672">.</span><span style="color:#a6e22e">FRIDAY</span><span style="color:#f92672">)){</span>
+				<span style="color:#66d9ef">return</span> date<span style="color:#f92672">.</span><span style="color:#a6e22e">plusDays</span><span style="color:#f92672">(</span>3<span style="color:#f92672">);</span>
+			<span style="color:#f92672">}</span><span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>date<span style="color:#f92672">.</span><span style="color:#a6e22e">getDayOfWeek</span><span style="color:#f92672">().</span><span style="color:#a6e22e">equals</span><span style="color:#f92672">(</span>DayOfWeek<span style="color:#f92672">.</span><span style="color:#a6e22e">SATURDAY</span><span style="color:#f92672">)){</span>
+				<span style="color:#66d9ef">return</span> date<span style="color:#f92672">.</span><span style="color:#a6e22e">plusDays</span><span style="color:#f92672">(</span>2<span style="color:#f92672">);</span>
+			<span style="color:#f92672">}</span><span style="color:#66d9ef">else</span><span style="color:#f92672">{</span>
+				<span style="color:#66d9ef">return</span> date<span style="color:#f92672">.</span><span style="color:#a6e22e">plusDays</span><span style="color:#f92672">(</span>1<span style="color:#f92672">);</span>
+			<span style="color:#f92672">}</span>
+				
+		<span style="color:#f92672">}</span>
+		
+	<span style="color:#f92672">});</span>
+	
+	System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;下一个工作日是：&#34;</span> <span style="color:#f92672">+</span> localDate<span style="color:#f92672">);</span>
+<span style="color:#f92672">}</span>
+</code></pre></div>
+                </div>
+            </article>
+             <div id="directory-content" class="directory-content">
+             <div id="directory"></div>
+            </div>
+            <hr>
+        </div>
+    </div>
+</div>
+
+	
+	
+<footer class="blog-footer">
+    <div class="blog-text-center">© 2019 <a href="/">Toweringx</a> 由 
+        <a href="https://github.com/gohugoio/hugo" target="_blank">Hugo</a>
+         强力驱动 Theme is 
+        <a href="https://github.com/Heemooo/amaze" target="_blank">Amaze made by heemooo</a>
+    </div>
+</footer>
+<script src="https://cdn.staticfile.org/jquery/3.3.1/jquery.slim.min.js"></script>
+<script src="https://cdn.staticfile.org/highlight.js/9.12.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script>
+    var $body=document.body;var $toggle=document.querySelector(".navbar-toggle");var $navbar=document.querySelector("#huxblog_navbar");var $collapse=document.querySelector(".navbar-collapse");var __HuxNav__={close:function(){$navbar.className=" ";setTimeout(function(){if($navbar.className.indexOf("in")<0){$collapse.style.height="0px"}},400)},open:function(){$collapse.style.height="auto";$navbar.className+=" in"}};$toggle.addEventListener("click",function(a){if($navbar.className.indexOf("in")>0){__HuxNav__.close()}else{__HuxNav__.open()}});document.addEventListener("click",function(a){if(a.target==$toggle){return}if(a.target.className=="icon-bar"){return}__HuxNav__.close()});jQuery(document).ready(function(c){var d=1170;if(c(window).width()>d){var b=c(".navbar-custom").height(),a=c(".intro-header .container").height();c(window).on("scroll",{previousTop:0},function(){var e=c(window).scrollTop(),f=c(".side-catalog");if(e<this.previousTop){if(e>0&&c(".navbar-custom").hasClass("is-fixed")){c(".navbar-custom").addClass("is-visible")}else{c(".navbar-custom").removeClass("is-visible is-fixed")}}else{c(".navbar-custom").removeClass("is-visible");if(e>b&&!c(".navbar-custom").hasClass("is-fixed")){c(".navbar-custom").addClass("is-fixed")}}this.previousTop=e;f.show();if(e>(a+41)){f.addClass("fixed")}else{f.removeClass("fixed")}})}});
+</script>
+<script>
+    $(document).ready(function() {
+        $('pre code').each(function(i, block) {
+            hljs.highlightBlock(block)
+        })
+        $('table').addClass('am-table')
+    });
+</script>
+<script src="/js/headBand.min.js"></script>
+<script>
+    $('.headBand').headBand({
+        'background':'#008aff',
+        'height':"3"
+    });
+</script>
+<script src="https://cdn.bootcss.com/headroom/0.9.4/headroom.min.js"></script>
+<script>
+       var postDirectoryBuild=function(){var b=function a(l,h){var k=[],e=typeof h==="object",g=typeof h==="string",j,f,d;for(f=0,d=l.length;f<d;f++){j=l[f];if((j.nodeType===1||j.nodeType===9)&&(!h||e&&h.test(j.tagName.toLowerCase())||g&&j.tagName.toLowerCase()===h)){k.push(j)}}return k},c=function(e,f,r){var n=[],m=[],h,p,d,j,l,s,o,g,k,q;h=(function(i,C,A){var w=b(i.childNodes,/^h\d$/),x=[],v=1,B=1,z=0,D=1,t="directory"+(Math.random()+"").replace(/\D/,""),B,y,u;while(w.length){u=w.shift();C.push(u.innerHTML);y=+u.tagName.match(/\d/)[0];if(y>v){x.push(1);B+=1}else{if(y===B||y>B&&y<=v){x.push(0);B=B}else{if(y<B){x.push(y-B);B=y}}}z+=x[x.length-1];v=y;u.id=u.id||(t+D++);A.push(u.id)}if(z!==0&&x[0]===1){x[0]=0}return x})(e,n,m);j=p=document.createElement("ul");q=document.createElement("span");q.style="color:#F38181;font-weight:600;";q.innerHTML="目录";p.appendChild(q);dirNum=[];for(g=0,k=h.length;g<k;g++){d=h[g];if(d===1){l=document.createElement("ul");if(!j.lastElementChild){j.appendChild(document.createElement("li"))}j.lastElementChild.appendChild(l);j=l;dirNum.push(0)}else{if(d<0){d*=2;while(d++){if(d%2){dirNum.pop()}j=j.parentNode}}}dirNum[dirNum.length-1]++;s=document.createElement("li");o=document.createElement("a");o.href="#"+m[g];o.innerHTML=!r?n[g]:dirNum.join(".")+" "+n[g];s.appendChild(o);j.appendChild(s)}f.appendChild(p)};c(document.getElementById("post-content"),document.getElementById("directory"),false)};postDirectoryBuild();
+</script>
+<script>
+    var postDirectory = new Headroom(document.getElementById("directory-content"), {
+        tolerance: 5,
+        offset: 240,
+        classes: {
+            initial: "initial",
+            pinned: "pinned",
+            unpinned: "unpinned"
+        }
+    });
+    postDirectory.init();
+</script>
+
+</body>
+
+</html>

@@ -113,7 +113,7 @@
                     <h1>String类的使用</h1>
 
                     
-                    <span class="meta">@Toweringx &nbsp;2021-02-24</span>
+                    <span class="meta">@Toweringx &nbsp;2020-01-01</span>
                     <div class="tags post-tags">
                         <div class="post-tags">
                             <a href="https://toweringx.top/tags/java.html">Java</a>
@@ -229,37 +229,37 @@ System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span>
 </span><span style="color:#75715e"></span>String s5 <span style="color:#f92672">=</span> s4 <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;hadoop&#34;</span><span style="color:#f92672">;</span>
 System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>s1 <span style="color:#f92672">==</span> s5<span style="color:#f92672">);</span><span style="color:#75715e">//true
 </span></code></pre></div><h2 id="5常用方法">5.常用方法：</h2>
-<p>int length()：返回字符串的长度： return value.length
-char charAt(int index)： 返回某索引处的字符return value[index]
-boolean isEmpty()：判断是否是空字符串：return value.length == 0
-String toLowerCase()：使用默认语言环境，将 String 中的所字符转换为小写
-String toUpperCase()：使用默认语言环境，将 String 中的所字符转换为大写
-String trim()：返回字符串的副本，忽略前导空白和尾部空白
-boolean equals(Object obj)：比较字符串的内容是否相同
-boolean equalsIgnoreCase(String anotherString)：与equals方法类似，忽略大小写
-String concat(String str)：将指定字符串连接到此字符串的结尾。 等价于用“+”
-int compareTo(String anotherString)：比较两个字符串的大小
-String substring(int beginIndex)：返回一个新的字符串，它是此字符串的从beginIndex开始截取到最后的一个子字符串。
-String substring(int beginIndex, int endIndex) ：返回一个新字符串，它是此字符串从beginIndex开始截取到endIndex(不包含)的一个子字符串。</p>
-<p>boolean endsWith(String suffix)：测试此字符串是否以指定的后缀结束
-boolean startsWith(String prefix)：测试此字符串是否以指定的前缀开始
-boolean startsWith(String prefix, int toffset)：测试此字符串从指定索引开始的子字符串是否以指定前缀开始</p>
-<p>boolean contains(CharSequence s)：当且仅当此字符串包含指定的 char 值序列时，返回 true
-int indexOf(String str)：返回指定子字符串在此字符串中第一次出现处的索引
-int indexOf(String str, int fromIndex)：返回指定子字符串在此字符串中第一次出现处的索引，从指定的索引开始
-int lastIndexOf(String str)：返回指定子字符串在此字符串中最右边出现处的索引
-int lastIndexOf(String str, int fromIndex)：返回指定子字符串在此字符串中最后一次出现处的索引，从指定的索引开始反向搜索</p>
+<p>int length()：返回字符串的长度： return value.length</p>
+<p>char charAt(int index)： 返回某索引处的字符return value[index]</p>
+<p>boolean isEmpty()：判断是否是空字符串：return value.length == 0</p>
+<p>String toLowerCase()：使用默认语言环境，将 String 中的所字符转换为小写</p>
+<p>String toUpperCase()：使用默认语言环境，将 String 中的所字符转换为大写</p>
+<p>String trim()：返回字符串的副本，忽略前导空白和尾部空白</p>
+<p>boolean equals(Object obj)：比较字符串的内容是否相同</p>
+<p>boolean equalsIgnoreCase(String anotherString)：与equals方法类似，忽略大小写</p>
+<p>String concat(String str)：将指定字符串连接到此字符串的结尾。 等价于用“+”</p>
+<p>int compareTo(String anotherString)：比较两个字符串的大小</p>
+<p>String substring(int beginIndex)：返回一个新的字符串，它是此字符串的从beginIndex开始截取到最后的一个子字符串。</p>
+<p>String substring(int beginIndex, int endIndex) ：返回一个新字符串，它是此字符串从beginIndex开始截取到endIndex(不包含)的一个子字符串。</p>
+<p>boolean endsWith(String suffix)：测试此字符串是否以指定的后缀结束</p>
+<p>boolean startsWith(String prefix)：测试此字符串是否以指定的前缀开始</p>
+<p>boolean startsWith(String prefix, int toffset)：测试此字符串从指定索引开始的子字符串是否以指定前缀开始</p>
+<p>boolean contains(CharSequence s)：当且仅当此字符串包含指定的 char 值序列时，返回 true</p>
+<p>int indexOf(String str)：返回指定子字符串在此字符串中第一次出现处的索引</p>
+<p>int indexOf(String str, int fromIndex)：返回指定子字符串在此字符串中第一次出现处的索引，从指定的索引开始</p>
+<p>int lastIndexOf(String str)：返回指定子字符串在此字符串中最右边出现处的索引</p>
+<p>int lastIndexOf(String str, int fromIndex)：返回指定子字符串在此字符串中最后一次出现处的索引，从指定的索引开始反向搜索</p>
 <p>注：indexOf和lastIndexOf方法如果未找到都是返回-1</p>
-<p>替换：
-String replace(char oldChar, char newChar)：返回一个新的字符串，它是通过用 newChar 替换此字符串中出现的所 oldChar 得到的。
-String replace(CharSequence target, CharSequence replacement)：使用指定的字面值替换序列替换此字符串所匹配字面值目标序列的子字符串。
-String replaceAll(String regex, String replacement)：使用给定的 replacement 替换此字符串所匹配给定的正则表达式的子字符串。
-String replaceFirst(String regex, String replacement)：使用给定的 replacement 替换此字符串匹配给定的正则表达式的第一个子字符串。
-匹配:
-boolean matches(String regex)：告知此字符串是否匹配给定的正则表达式。
-切片：
-String[] split(String regex)：根据给定正则表达式的匹配拆分此字符串。
-String[] split(String regex, int limit)：根据匹配给定的正则表达式来拆分此字符串，最多不超过limit个，如果超过了，剩下的全部都放到最后一个元素中。</p>
+<p><strong>替换</strong>：</p>
+<p>String replace(char oldChar, char newChar)：返回一个新的字符串，它是通过用 newChar 替换此字符串中出现的所 oldChar 得到的。</p>
+<p>String replace(CharSequence target, CharSequence replacement)：使用指定的字面值替换序列替换此字符串所匹配字面值目标序列的子字符串。</p>
+<p>String replaceAll(String regex, String replacement)：使用给定的 replacement 替换此字符串所匹配给定的正则表达式的子字符串。</p>
+<p>String replaceFirst(String regex, String replacement)：使用给定的 replacement 替换此字符串匹配给定的正则表达式的第一个子字符串。</p>
+<p><strong>匹配</strong>:</p>
+<p>boolean matches(String regex)：告知此字符串是否匹配给定的正则表达式。</p>
+<p><strong>切片</strong>：</p>
+<p>String[] split(String regex)：根据给定正则表达式的匹配拆分此字符串。</p>
+<p>String[] split(String regex, int limit)：根据匹配给定的正则表达式来拆分此字符串，最多不超过limit个，如果超过了，剩下的全部都放到最后一个元素中。</p>
 <h2 id="6string与其它结构的转换">6.String与其它结构的转换</h2>
 <h3 id="61-与基本数据类型包装类之间的转换">6.1 与基本数据类型、包装类之间的转换</h3>
 <p>String &ndash;&gt; 基本数据类型、包装类：调用包装类的静态方法：parseXxx(str)
@@ -308,8 +308,8 @@ System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span>
 System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>str4<span style="color:#f92672">);</span><span style="color:#75715e">//没出现乱码。原因：编码集和解码集一致！
 </span><span style="color:#75715e"></span><span style="color:#f92672">}</span>
 </code></pre></div><h3 id="64-与stringbufferstringbuilder之间的转换">6.4 与StringBuffer、StringBuilder之间的转换</h3>
-<p>String &ndash;&gt;StringBuffer、StringBuilder:调用StringBuffer、StringBuilder构造器
-StringBuffer、StringBuilder &ndash;&gt;String:①调用String构造器；②StringBuffer、StringBuilder的toString()</p>
+<p>String &ndash;&gt;StringBuffer、StringBuilder:调用StringBuffer、StringBuilder构造器</p>
+<p>StringBuffer、StringBuilder &ndash;&gt;String:①调用String构造器；②StringBuffer、StringBuilder的toString()</p>
 <h2 id="7jvm中字符串常量池存放位置说明">7.JVM中字符串常量池存放位置说明：</h2>
 <p>jdk 1.6 (jdk 6.0 ,java 6.0):字符串常量池存储在方法区（永久区）
 jdk 1.7:字符串常量池存储在堆空间

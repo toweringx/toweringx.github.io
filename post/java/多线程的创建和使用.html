@@ -1,0 +1,507 @@
+<!DOCTYPE HTML>
+<html lang="zh-cn">
+
+<head><title> 多线程的创建和使用 - Toweringx</title><meta name="baidu-site-verification" content="jZRrwlvEpq" />
+<meta name="google-site-verification" content="OcQLxKrUrj5A9hpAdCQuoY-K7f5Ja4LUYt35Kxdwq_E" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="description" content="Toweringx的博客" />
+<meta name="keywords" content="Toweringx的博客" />
+<meta name="generator" content="Tale" />
+<meta name="renderer" content="webkit">
+<meta http-equiv="x-dns-prefetch-control" content="on" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta charset="UTF-8">
+<link rel="shortcut icon" href="/img/favicon.ico">
+<link href="https://cdn.staticfile.org/amazeui/2.7.2/css/amazeui.min.css" rel="stylesheet">
+
+<link rel="stylesheet" href="/css/customui.css">
+
+<link href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+
+<style>
+.hljs{display:block;overflow-x:auto;padding:0.5em;color:#383a42;background:#fafafa}.hljs-comment,.hljs-quote{color:#a0a1a7;}.hljs-doctag,.hljs-keyword,.hljs-formula{color:#a626a4}.hljs-section,.hljs-name,.hljs-selector-tag,.hljs-deletion,.hljs-subst{color:#e45649}.hljs-literal{color:#0184bb}.hljs-string,.hljs-regexp,.hljs-addition,.hljs-attribute,.hljs-meta-string{color:#50a14f}.hljs-built_in,.hljs-class .hljs-title{color:#c18401}.hljs-attr,.hljs-variable,.hljs-template-variable,.hljs-type,.hljs-selector-class,.hljs-selector-attr,.hljs-selector-pseudo,.hljs-number{color:#986801}.hljs-symbol,.hljs-bullet,.hljs-link,.hljs-meta,.hljs-selector-id,.hljs-title{color:#4078f2}.hljs-emphasis{font-style:italic}.hljs-strong{font-weight:bold}.hljs-link{text-decoration:underline}
+</style>
+
+</head>
+
+<body id="blog">
+    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Toweringx的博客</a>
+            
+        </div>
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    
+                    
+                    <li class="menu-item">
+                    
+                    
+                    
+                    <a class="menu-item-link" href="https://toweringx.top/">首页</a>
+                    
+
+                    
+
+                    </li>
+                    
+                    <li class="menu-item">
+                    
+                    
+                    
+                    <a class="menu-item-link" href="https://toweringx.top/post.html">归档</a>
+                    
+
+                    
+
+                    </li>
+                    
+                    <li class="menu-item">
+                    
+                    
+                    
+                    <a class="menu-item-link" href="https://toweringx.top/categories.html">分类</a>
+                    
+
+                    
+
+                    </li>
+                    
+                    <li class="menu-item">
+                    
+                    
+                    
+                    <a class="menu-item-link" href="https://toweringx.top/tags.html">标签</a>
+                    
+
+                    
+
+                    </li>
+                    
+                    <li class="menu-item">
+                    
+                    
+                    
+                    <a class="menu-item-link" href="https://toweringx.top/about.html">关于</a>
+                    
+
+                    
+
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+
+    
+<header class="intro-header" style="background-image: url('https://cdn.jsdelivr.net/gh/XiaoZhengr/mycdn/img/20210224140623.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    
+                    <h1>多线程的创建和使用</h1>
+
+                    
+                    <span class="meta">@Toweringx &nbsp;2020-01-06</span>
+                    <div class="tags post-tags">
+                        <div class="post-tags">
+                            <a href="https://toweringx.top/tags/java.html">Java</a>
+                            <a href="https://toweringx.top/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B.html">多线程</a>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+    
+
+<div class="container">
+    <div class="am-g am-g-fixed blog-fixed">
+        <div class="am-u-lg-12 am-u-sm-12">
+            <article class="am-article blog-article-p article-trigger">
+                <div id="post-content" class="am-article-bd">
+                    <blockquote>
+<p>内存结构：</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/XiaoZhengr/mycdn/img/20210223101757.png" alt=""></p>
+<p>进程可以细化为多个线程。</p>
+<p>每个线程，拥有自己独立的：栈、程序计数器</p>
+<p>多个线程，共享同一个进程中的结构：方法区、堆。</p>
+<blockquote>
+<p>Thread中的常用方法：</p>
+</blockquote>
+<ol>
+<li>start():启动当前线程；调用当前线程的run()</li>
+<li>run(): 通常需要重写Thread类中的此方法，将创建的线程要执行的操作声明在此方法中</li>
+<li>currentThread():静态方法，返回执行当前代码的线程</li>
+<li>getName():获取当前线程的名字</li>
+<li>setName():设置当前线程的名字</li>
+<li>yield():释放当前cpu的执行权</li>
+<li>join():在线程a中调用线程b的join(),此时线程a就进入阻塞状态，直到线程b完全执行完以后，线程a才结束阻塞状态。</li>
+<li>stop():已过时。当执行此方法时，强制结束当前线程。</li>
+<li>sleep(long millitime):让当前线程“睡眠”指定的millitime毫秒。在指定的millitime毫秒时间内，当前线程是阻塞状态。</li>
+<li>isAlive():判断当前线程是否存活</li>
+</ol>
+<blockquote>
+<p>线程的优先级：</p>
+</blockquote>
+<ol>
+<li>
+<p>MAX_PRIORITY：10</p>
+</li>
+<li>
+<p>MIN _PRIORITY：1</p>
+</li>
+<li>
+<p>NORM_PRIORITY：5  &ndash;&gt;默认优先级</p>
+<p><strong>如何获取和设置当前线程的优先级：</strong></p>
+<p>getPriority():获取线程的优先级</p>
+<p>setPriority(int p):设置线程的优先级</p>
+</li>
+</ol>
+<p>说明：高优先级的线程要抢占低优先级线程cpu的执行权。但是只是从概率上讲，高优先级的线程高概率的情况下被执行。并不意味着只有当高优先级的线程执行完以后，低优先级的线程才执行。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JAVA" data-lang="JAVA"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">HelloThread</span> <span style="color:#66d9ef">extends</span> Thread<span style="color:#f92672">{</span>
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">run</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span> i <span style="color:#f92672">&lt;</span> 100<span style="color:#f92672">;</span> i<span style="color:#f92672">++)</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>i <span style="color:#f92672">%</span> 2 <span style="color:#f92672">==</span> 0<span style="color:#f92672">){</span>
+
+<span style="color:#75715e">//                try {
+</span><span style="color:#75715e">//                    sleep(10);
+</span><span style="color:#75715e">//                } catch (InterruptedException e) {
+</span><span style="color:#75715e">//                    e.printStackTrace();
+</span><span style="color:#75715e">//                }
+</span><span style="color:#75715e"></span>
+                System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>Thread<span style="color:#f92672">.</span><span style="color:#a6e22e">currentThread</span><span style="color:#f92672">().</span><span style="color:#a6e22e">getName</span><span style="color:#f92672">()</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;:&#34;</span> <span style="color:#f92672">+</span> Thread<span style="color:#f92672">.</span><span style="color:#a6e22e">currentThread</span><span style="color:#f92672">().</span><span style="color:#a6e22e">getPriority</span><span style="color:#f92672">()</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;:&#34;</span> <span style="color:#f92672">+</span> i<span style="color:#f92672">);</span>
+            <span style="color:#f92672">}</span>
+
+<span style="color:#75715e">//            if(i % 20 == 0){
+</span><span style="color:#75715e">//                yield();
+</span><span style="color:#75715e">//            }
+</span><span style="color:#75715e"></span>
+        <span style="color:#f92672">}</span>
+
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">HelloThread</span><span style="color:#f92672">(</span>String name<span style="color:#f92672">){</span>
+        <span style="color:#66d9ef">super</span><span style="color:#f92672">(</span>name<span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ThreadMethodTest</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+
+        HelloThread h1 <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> HelloThread<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Thread：1&#34;</span><span style="color:#f92672">);</span>
+
+<span style="color:#75715e">//        h1.setName(&#34;线程一&#34;);
+</span><span style="color:#75715e"></span>        <span style="color:#75715e">//设置分线程的优先级
+</span><span style="color:#75715e"></span>        h1<span style="color:#f92672">.</span><span style="color:#a6e22e">setPriority</span><span style="color:#f92672">(</span>Thread<span style="color:#f92672">.</span><span style="color:#a6e22e">MAX_PRIORITY</span><span style="color:#f92672">);</span>
+
+        h1<span style="color:#f92672">.</span><span style="color:#a6e22e">start</span><span style="color:#f92672">();</span>
+
+        <span style="color:#75715e">//给主线程命名
+</span><span style="color:#75715e"></span>        Thread<span style="color:#f92672">.</span><span style="color:#a6e22e">currentThread</span><span style="color:#f92672">().</span><span style="color:#a6e22e">setName</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;主线程&#34;</span><span style="color:#f92672">);</span>
+        Thread<span style="color:#f92672">.</span><span style="color:#a6e22e">currentThread</span><span style="color:#f92672">().</span><span style="color:#a6e22e">setPriority</span><span style="color:#f92672">(</span>Thread<span style="color:#f92672">.</span><span style="color:#a6e22e">MIN_PRIORITY</span><span style="color:#f92672">);</span>
+
+        <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span> i <span style="color:#f92672">&lt;</span> 100<span style="color:#f92672">;</span> i<span style="color:#f92672">++)</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>i <span style="color:#f92672">%</span> 2 <span style="color:#f92672">==</span> 0<span style="color:#f92672">){</span>
+                System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>Thread<span style="color:#f92672">.</span><span style="color:#a6e22e">currentThread</span><span style="color:#f92672">().</span><span style="color:#a6e22e">getName</span><span style="color:#f92672">()</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;:&#34;</span> <span style="color:#f92672">+</span> Thread<span style="color:#f92672">.</span><span style="color:#a6e22e">currentThread</span><span style="color:#f92672">().</span><span style="color:#a6e22e">getPriority</span><span style="color:#f92672">()</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;:&#34;</span> <span style="color:#f92672">+</span> i<span style="color:#f92672">);</span>
+            <span style="color:#f92672">}</span>
+
+<span style="color:#75715e">//            if(i == 20){
+</span><span style="color:#75715e">//                try {
+</span><span style="color:#75715e">//                    h1.join();
+</span><span style="color:#75715e">//                } catch (InterruptedException e) {
+</span><span style="color:#75715e">//                    e.printStackTrace();
+</span><span style="color:#75715e">//                }
+</span><span style="color:#75715e">//            }
+</span><span style="color:#75715e"></span>
+        <span style="color:#f92672">}</span>
+
+<span style="color:#75715e">//        System.out.println(h1.isAlive());
+</span><span style="color:#75715e"></span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h2 id="多线程的创建四种方法">多线程的创建(四种方法)</h2>
+<blockquote>
+<p>创建线程的方式一：继承于Thread类</p>
+</blockquote>
+<ol>
+<li>创建一个继承于Thread类的子类</li>
+<li>重写Thread类的run() &ndash;&gt; 将此线程执行的操作声明在run()中</li>
+<li>创建Thread类的子类的对象</li>
+<li>通过此对象调用start()</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">//1. 创建一个继承于Thread类的子类
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MyThread</span> <span style="color:#66d9ef">extends</span> Thread <span style="color:#f92672">{</span>
+    <span style="color:#75715e">//2. 重写Thread类的run()
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">run</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span> i <span style="color:#f92672">&lt;</span> 100<span style="color:#f92672">;</span> i<span style="color:#f92672">++)</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>i <span style="color:#f92672">%</span> 2 <span style="color:#f92672">==</span> 0<span style="color:#f92672">){</span>
+                System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>Thread<span style="color:#f92672">.</span><span style="color:#a6e22e">currentThread</span><span style="color:#f92672">().</span><span style="color:#a6e22e">getName</span><span style="color:#f92672">()</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;:&#34;</span> <span style="color:#f92672">+</span> i<span style="color:#f92672">);</span>
+            <span style="color:#f92672">}</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ThreadTest</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#75715e">//3. 创建Thread类的子类的对象
+</span><span style="color:#75715e"></span>        MyThread t1 <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> MyThread<span style="color:#f92672">();</span>
+
+        <span style="color:#75715e">//4.通过此对象调用start():①启动当前线程 ② 调用当前线程的run()
+</span><span style="color:#75715e"></span>        t1<span style="color:#f92672">.</span><span style="color:#a6e22e">start</span><span style="color:#f92672">();</span>
+        <span style="color:#75715e">//问题一：我们不能通过直接调用run()的方式启动线程。
+</span><span style="color:#75715e">//        t1.run();
+</span><span style="color:#75715e"></span>
+        <span style="color:#75715e">//问题二：再启动一个线程，遍历100以内的偶数。不可以还让已经start()的线程去执行。会报IllegalThreadStateException
+</span><span style="color:#75715e">//        t1.start();
+</span><span style="color:#75715e"></span>        <span style="color:#75715e">//我们需要重新创建一个线程的对象
+</span><span style="color:#75715e"></span>        MyThread t2 <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> MyThread<span style="color:#f92672">();</span>
+        t2<span style="color:#f92672">.</span><span style="color:#a6e22e">start</span><span style="color:#f92672">();</span>
+
+
+        <span style="color:#75715e">//如下操作仍然是在main线程中执行的。
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span> i <span style="color:#f92672">&lt;</span> 100<span style="color:#f92672">;</span> i<span style="color:#f92672">++)</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>i <span style="color:#f92672">%</span> 2 <span style="color:#f92672">==</span> 0<span style="color:#f92672">){</span>
+                System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>Thread<span style="color:#f92672">.</span><span style="color:#a6e22e">currentThread</span><span style="color:#f92672">().</span><span style="color:#a6e22e">getName</span><span style="color:#f92672">()</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;:&#34;</span> <span style="color:#f92672">+</span> i <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;***********main()************&#34;</span><span style="color:#f92672">);</span>
+            <span style="color:#f92672">}</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
+
+<span style="color:#f92672">}</span>
+</code></pre></div><blockquote>
+<p>创建线程的方式二：实现Runnable接口</p>
+</blockquote>
+<ol>
+<li>创建一个实现了Runnable接口的类</li>
+<li>实现类去实现Runnable中的抽象方法：run()</li>
+<li>创建实现类的对象</li>
+<li>将此对象作为参数传递到Thread类的构造器中，创建Thread类的对象</li>
+<li>通过Thread类的对象调用start()</li>
+</ol>
+<p><strong>比较创建线程的两种方式。</strong>
+开发中：优先选择：实现Runnable接口的方式</p>
+<p>原因：1. 实现的方式没有类的单继承性的局限性</p>
+<pre><code> 2. 实现的方式更适合来处理多个线程有共享数据的情况。         
+</code></pre>
+<p>联系：public class Thread implements Runnable                 <br>
+相同点：两种方式都需要重写run(),将线程要执行的逻辑声明在run()中。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">//1. 创建一个实现了Runnable接口的类
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MThread</span> <span style="color:#66d9ef">implements</span> Runnable<span style="color:#f92672">{</span>
+
+    <span style="color:#75715e">//2. 实现类去实现Runnable中的抽象方法：run()
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">run</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span> i <span style="color:#f92672">&lt;</span> 100<span style="color:#f92672">;</span> i<span style="color:#f92672">++)</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>i <span style="color:#f92672">%</span> 2 <span style="color:#f92672">==</span> 0<span style="color:#f92672">){</span>
+                System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>Thread<span style="color:#f92672">.</span><span style="color:#a6e22e">currentThread</span><span style="color:#f92672">().</span><span style="color:#a6e22e">getName</span><span style="color:#f92672">()</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;:&#34;</span> <span style="color:#f92672">+</span> i<span style="color:#f92672">);</span>
+            <span style="color:#f92672">}</span>
+
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ThreadTest1</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#75715e">//3. 创建实现类的对象
+</span><span style="color:#75715e"></span>        MThread mThread <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> MThread<span style="color:#f92672">();</span>
+        <span style="color:#75715e">//4. 将此对象作为参数传递到Thread类的构造器中，创建Thread类的对象
+</span><span style="color:#75715e"></span>        Thread t1 <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Thread<span style="color:#f92672">(</span>mThread<span style="color:#f92672">);</span>
+        t1<span style="color:#f92672">.</span><span style="color:#a6e22e">setName</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;线程1&#34;</span><span style="color:#f92672">);</span>
+        <span style="color:#75715e">//5. 通过Thread类的对象调用start():① 启动线程 ②调用当前线程的run()--&gt;调用了Runnable类型的target的run()
+</span><span style="color:#75715e"></span>        t1<span style="color:#f92672">.</span><span style="color:#a6e22e">start</span><span style="color:#f92672">();</span>
+
+        <span style="color:#75715e">//再启动一个线程，遍历100以内的偶数
+</span><span style="color:#75715e"></span>        Thread t2 <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Thread<span style="color:#f92672">(</span>mThread<span style="color:#f92672">);</span>
+        t2<span style="color:#f92672">.</span><span style="color:#a6e22e">setName</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;线程2&#34;</span><span style="color:#f92672">);</span>
+        t2<span style="color:#f92672">.</span><span style="color:#a6e22e">start</span><span style="color:#f92672">();</span>
+    <span style="color:#f92672">}</span>
+
+<span style="color:#f92672">}</span>
+
+</code></pre></div><blockquote>
+<p>创建线程的方式三：实现Callable接口。 &mdash; JDK 5.0新增</p>
+</blockquote>
+<p>如何理解实现Callable接口的方式创建多线程比实现Runnable接口创建多线程方式强大</p>
+<ol>
+<li>call()可以有返回值的。</li>
+<li>call()可以抛出异常，被外面的操作捕获，获取异常的信息</li>
+<li>Callable是支持泛型的</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">//1.创建一个实现Callable的实现类
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">NumThread</span> <span style="color:#66d9ef">implements</span> Callable<span style="color:#f92672">{</span>
+    <span style="color:#75715e">//2.实现call方法，将此线程需要执行的操作声明在call()中
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> Object <span style="color:#a6e22e">call</span><span style="color:#f92672">()</span> <span style="color:#66d9ef">throws</span> Exception <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">int</span> sum <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 1<span style="color:#f92672">;</span> i <span style="color:#f92672">&lt;=</span> 100<span style="color:#f92672">;</span> i<span style="color:#f92672">++)</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>i <span style="color:#f92672">%</span> 2 <span style="color:#f92672">==</span> 0<span style="color:#f92672">){</span>
+                System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>i<span style="color:#f92672">);</span>
+                sum <span style="color:#f92672">+=</span> i<span style="color:#f92672">;</span>
+            <span style="color:#f92672">}</span>
+        <span style="color:#f92672">}</span>
+        <span style="color:#66d9ef">return</span> sum<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ThreadNew</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#75715e">//3.创建Callable接口实现类的对象
+</span><span style="color:#75715e"></span>        NumThread numThread <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> NumThread<span style="color:#f92672">();</span>
+        <span style="color:#75715e">//4.将此Callable接口实现类的对象作为传递到FutureTask构造器中，创建FutureTask的对象
+</span><span style="color:#75715e"></span>        FutureTask futureTask <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> FutureTask<span style="color:#f92672">(</span>numThread<span style="color:#f92672">);</span>
+        <span style="color:#75715e">//5.将FutureTask的对象作为参数传递到Thread类的构造器中，创建Thread对象，并调用start()
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">new</span> Thread<span style="color:#f92672">(</span>futureTask<span style="color:#f92672">).</span><span style="color:#a6e22e">start</span><span style="color:#f92672">();</span>
+
+        <span style="color:#66d9ef">try</span> <span style="color:#f92672">{</span>
+            <span style="color:#75715e">//6.获取Callable中call方法的返回值
+</span><span style="color:#75715e"></span>            <span style="color:#75715e">//get()返回值即为FutureTask构造器参数Callable实现类重写的call()的返回值。
+</span><span style="color:#75715e"></span>            Object sum <span style="color:#f92672">=</span> futureTask<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">();</span>
+            System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;总和为：&#34;</span> <span style="color:#f92672">+</span> sum<span style="color:#f92672">);</span>
+        <span style="color:#f92672">}</span> <span style="color:#66d9ef">catch</span> <span style="color:#f92672">(</span>InterruptedException e<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            e<span style="color:#f92672">.</span><span style="color:#a6e22e">printStackTrace</span><span style="color:#f92672">();</span>
+        <span style="color:#f92672">}</span> <span style="color:#66d9ef">catch</span> <span style="color:#f92672">(</span>ExecutionException e<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            e<span style="color:#f92672">.</span><span style="color:#a6e22e">printStackTrace</span><span style="color:#f92672">();</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
+
+<span style="color:#f92672">}</span>
+
+</code></pre></div><blockquote>
+<p>创建线程的方式四：使用线程池</p>
+</blockquote>
+<p><strong>好处</strong>：</p>
+<p>1.提高响应速度（减少了创建新线程的时间</p>
+<p>2.降低资源消耗（重复利用线程池中线程，不需要每次都创建）</p>
+<p>3.便于线程管理</p>
+<p>​     corePoolSize：核心池的大小</p>
+<p>​     maximumPoolSize：最大线程数</p>
+<p>​     keepAliveTime：线程没有任务时最多保持多长时间后会终止</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">NumberThread</span> <span style="color:#66d9ef">implements</span> Runnable<span style="color:#f92672">{</span>
+
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">run</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">for</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span>i <span style="color:#f92672">&lt;=</span> 100<span style="color:#f92672">;</span>i<span style="color:#f92672">++){</span>
+            <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>i <span style="color:#f92672">%</span> 2 <span style="color:#f92672">==</span> 0<span style="color:#f92672">){</span>
+                System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>Thread<span style="color:#f92672">.</span><span style="color:#a6e22e">currentThread</span><span style="color:#f92672">().</span><span style="color:#a6e22e">getName</span><span style="color:#f92672">()</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;: &#34;</span> <span style="color:#f92672">+</span> i<span style="color:#f92672">);</span>
+            <span style="color:#f92672">}</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">NumberThread1</span> <span style="color:#66d9ef">implements</span> Runnable<span style="color:#f92672">{</span>
+
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">run</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">for</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span>i <span style="color:#f92672">&lt;=</span> 100<span style="color:#f92672">;</span>i<span style="color:#f92672">++){</span>
+            <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>i <span style="color:#f92672">%</span> 2 <span style="color:#f92672">!=</span> 0<span style="color:#f92672">){</span>
+                System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>Thread<span style="color:#f92672">.</span><span style="color:#a6e22e">currentThread</span><span style="color:#f92672">().</span><span style="color:#a6e22e">getName</span><span style="color:#f92672">()</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;: &#34;</span> <span style="color:#f92672">+</span> i<span style="color:#f92672">);</span>
+            <span style="color:#f92672">}</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ThreadPool</span> <span style="color:#f92672">{</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#75715e">//1. 提供指定线程数量的线程池
+</span><span style="color:#75715e"></span>        ExecutorService service <span style="color:#f92672">=</span> Executors<span style="color:#f92672">.</span><span style="color:#a6e22e">newFixedThreadPool</span><span style="color:#f92672">(</span>10<span style="color:#f92672">);</span>
+        ThreadPoolExecutor service1 <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>ThreadPoolExecutor<span style="color:#f92672">)</span> service<span style="color:#f92672">;</span>
+        <span style="color:#75715e">//设置线程池的属性
+</span><span style="color:#75715e">//        System.out.println(service.getClass());
+</span><span style="color:#75715e">//        service1.setCorePoolSize(15);
+</span><span style="color:#75715e">//        service1.setKeepAliveTime();
+</span><span style="color:#75715e"></span>
+
+        <span style="color:#75715e">//2.执行指定的线程的操作。需要提供实现Runnable接口或Callable接口实现类的对象
+</span><span style="color:#75715e"></span>        service<span style="color:#f92672">.</span><span style="color:#a6e22e">execute</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> NumberThread<span style="color:#f92672">());</span><span style="color:#75715e">//适合适用于Runnable
+</span><span style="color:#75715e"></span>        service<span style="color:#f92672">.</span><span style="color:#a6e22e">execute</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> NumberThread1<span style="color:#f92672">());</span><span style="color:#75715e">//适合适用于Runnable
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">//        service.submit(Callable callable);//适合使用于Callable
+</span><span style="color:#75715e"></span>        <span style="color:#75715e">//3.关闭连接池
+</span><span style="color:#75715e"></span>        service<span style="color:#f92672">.</span><span style="color:#a6e22e">shutdown</span><span style="color:#f92672">();</span>
+    <span style="color:#f92672">}</span>
+
+<span style="color:#f92672">}</span>  
+</code></pre></div>
+                </div>
+            </article>
+             <div id="directory-content" class="directory-content">
+             <div id="directory"></div>
+            </div>
+            <hr>
+        </div>
+    </div>
+</div>
+
+	
+	
+<footer class="blog-footer">
+    <div class="blog-text-center">© 2019 <a href="/">Toweringx</a> 由 
+        <a href="https://github.com/gohugoio/hugo" target="_blank">Hugo</a>
+         强力驱动 Theme is 
+        <a href="https://github.com/Heemooo/amaze" target="_blank">Amaze made by heemooo</a>
+    </div>
+</footer>
+<script src="https://cdn.staticfile.org/jquery/3.3.1/jquery.slim.min.js"></script>
+<script src="https://cdn.staticfile.org/highlight.js/9.12.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script>
+    var $body=document.body;var $toggle=document.querySelector(".navbar-toggle");var $navbar=document.querySelector("#huxblog_navbar");var $collapse=document.querySelector(".navbar-collapse");var __HuxNav__={close:function(){$navbar.className=" ";setTimeout(function(){if($navbar.className.indexOf("in")<0){$collapse.style.height="0px"}},400)},open:function(){$collapse.style.height="auto";$navbar.className+=" in"}};$toggle.addEventListener("click",function(a){if($navbar.className.indexOf("in")>0){__HuxNav__.close()}else{__HuxNav__.open()}});document.addEventListener("click",function(a){if(a.target==$toggle){return}if(a.target.className=="icon-bar"){return}__HuxNav__.close()});jQuery(document).ready(function(c){var d=1170;if(c(window).width()>d){var b=c(".navbar-custom").height(),a=c(".intro-header .container").height();c(window).on("scroll",{previousTop:0},function(){var e=c(window).scrollTop(),f=c(".side-catalog");if(e<this.previousTop){if(e>0&&c(".navbar-custom").hasClass("is-fixed")){c(".navbar-custom").addClass("is-visible")}else{c(".navbar-custom").removeClass("is-visible is-fixed")}}else{c(".navbar-custom").removeClass("is-visible");if(e>b&&!c(".navbar-custom").hasClass("is-fixed")){c(".navbar-custom").addClass("is-fixed")}}this.previousTop=e;f.show();if(e>(a+41)){f.addClass("fixed")}else{f.removeClass("fixed")}})}});
+</script>
+<script>
+    $(document).ready(function() {
+        $('pre code').each(function(i, block) {
+            hljs.highlightBlock(block)
+        })
+        $('table').addClass('am-table')
+    });
+</script>
+<script src="/js/headBand.min.js"></script>
+<script>
+    $('.headBand').headBand({
+        'background':'#008aff',
+        'height':"3"
+    });
+</script>
+<script src="https://cdn.bootcss.com/headroom/0.9.4/headroom.min.js"></script>
+<script>
+       var postDirectoryBuild=function(){var b=function a(l,h){var k=[],e=typeof h==="object",g=typeof h==="string",j,f,d;for(f=0,d=l.length;f<d;f++){j=l[f];if((j.nodeType===1||j.nodeType===9)&&(!h||e&&h.test(j.tagName.toLowerCase())||g&&j.tagName.toLowerCase()===h)){k.push(j)}}return k},c=function(e,f,r){var n=[],m=[],h,p,d,j,l,s,o,g,k,q;h=(function(i,C,A){var w=b(i.childNodes,/^h\d$/),x=[],v=1,B=1,z=0,D=1,t="directory"+(Math.random()+"").replace(/\D/,""),B,y,u;while(w.length){u=w.shift();C.push(u.innerHTML);y=+u.tagName.match(/\d/)[0];if(y>v){x.push(1);B+=1}else{if(y===B||y>B&&y<=v){x.push(0);B=B}else{if(y<B){x.push(y-B);B=y}}}z+=x[x.length-1];v=y;u.id=u.id||(t+D++);A.push(u.id)}if(z!==0&&x[0]===1){x[0]=0}return x})(e,n,m);j=p=document.createElement("ul");q=document.createElement("span");q.style="color:#F38181;font-weight:600;";q.innerHTML="目录";p.appendChild(q);dirNum=[];for(g=0,k=h.length;g<k;g++){d=h[g];if(d===1){l=document.createElement("ul");if(!j.lastElementChild){j.appendChild(document.createElement("li"))}j.lastElementChild.appendChild(l);j=l;dirNum.push(0)}else{if(d<0){d*=2;while(d++){if(d%2){dirNum.pop()}j=j.parentNode}}}dirNum[dirNum.length-1]++;s=document.createElement("li");o=document.createElement("a");o.href="#"+m[g];o.innerHTML=!r?n[g]:dirNum.join(".")+" "+n[g];s.appendChild(o);j.appendChild(s)}f.appendChild(p)};c(document.getElementById("post-content"),document.getElementById("directory"),false)};postDirectoryBuild();
+</script>
+<script>
+    var postDirectory = new Headroom(document.getElementById("directory-content"), {
+        tolerance: 5,
+        offset: 240,
+        classes: {
+            initial: "initial",
+            pinned: "pinned",
+            unpinned: "unpinned"
+        }
+    });
+    postDirectory.init();
+</script>
+
+</body>
+
+</html>

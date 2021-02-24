@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Date on Toweringx</title>
+    <link>https://toweringx.top/tags/date.html</link>
+    <description>Recent content in Date on Toweringx</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sun, 05 Jan 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://toweringx.top/tags/date/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>JDK8中新日期时间API</title>
+      <link>https://toweringx.top/post/java/jdk8%E4%B8%AD%E6%96%B0%E6%97%A5%E6%9C%9F%E6%97%B6%E9%97%B4api.html</link>
+      <pubDate>Sun, 05 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://toweringx.top/post/java/jdk8%E4%B8%AD%E6%96%B0%E6%97%A5%E6%9C%9F%E6%97%B6%E9%97%B4api.html</guid>
+      <description>1.日期时间API的迭代： 第一代：jdk 1.0 Date类 第二代：jdk 1.1 Calendar类，一定程度上替换Date类 第三代：jdk 1.8 提出了新的一</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>枚举 on Toweringx</title>
+    <link>https://toweringx.top/tags/%E6%9E%9A%E4%B8%BE.html</link>
+    <description>Recent content in 枚举 on Toweringx</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 03 Jan 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://toweringx.top/tags/%E6%9E%9A%E4%B8%BE/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>enum枚举类的说明</title>
+      <link>https://toweringx.top/post/java/enum%E6%9E%9A%E4%B8%BE%E7%B1%BB%E7%9A%84%E8%AF%B4%E6%98%8E.html</link>
+      <pubDate>Fri, 03 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://toweringx.top/post/java/enum%E6%9E%9A%E4%B8%BE%E7%B1%BB%E7%9A%84%E8%AF%B4%E6%98%8E.html</guid>
+      <description>1.枚举类的说明： 1.枚举类的理解：类的对象只有有限个，确定的。我们称此类为枚举类 2.当需要定义一组常量时，强烈建议使用枚举类 3.如果枚举类</description>
+    </item>
+    
+  </channel>
+</rss>

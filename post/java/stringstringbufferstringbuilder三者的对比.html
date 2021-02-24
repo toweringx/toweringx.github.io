@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html lang="zh-cn">
 
-<head><title> 常用的几个vagrant命令 - Toweringx</title><meta name="baidu-site-verification" content="jZRrwlvEpq" />
+<head><title> String、StringBuffer、StringBuilder三者的对比 - Toweringx</title><meta name="baidu-site-verification" content="jZRrwlvEpq" />
 <meta name="google-site-verification" content="OcQLxKrUrj5A9hpAdCQuoY-K7f5Ja4LUYt35Kxdwq_E" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <meta name="description" content="Toweringx的博客" />
@@ -110,13 +110,16 @@
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="post-heading">
                     
-                    <h1>常用的几个vagrant命令</h1>
+                    <h1>String、StringBuffer、StringBuilder三者的对比</h1>
 
                     
-                    <span class="meta">@Toweringx &nbsp;2020-01-10</span>
+                    <span class="meta">@Toweringx &nbsp;2020-01-02</span>
                     <div class="tags post-tags">
                         <div class="post-tags">
-                            <a href="https://toweringx.top/tags/vagrant.html">vagrant</a>
+                            <a href="https://toweringx.top/tags/java.html">Java</a>
+                            <a href="https://toweringx.top/tags/string.html">String</a>
+                            <a href="https://toweringx.top/tags/stringbuffer.html">StringBuffer</a>
+                            <a href="https://toweringx.top/tags/stringbuilder.html">StringBuilder</a>
                             
                         </div>
                     </div>
@@ -134,19 +137,52 @@
         <div class="am-u-lg-12 am-u-sm-12">
             <article class="am-article blog-article-p article-trigger">
                 <div id="post-content" class="am-article-bd">
-                    <p>$ vagrant init    # 初始化</p>
-<p>$ vagrant up     # 启动虚拟机
-$ vagrant halt    # 关闭虚拟机
-$ vagrant reload   # 重启虚拟机
-$ vagrant ssh    # SSH 至虚拟机
-$ vagrant suspend  # 挂起虚拟机
-$ vagrant resume   # 唤醒虚拟机
-$ vagrant status   # 查看虚拟机运行状态
-$ vagrant destroy  # 销毁当前虚拟机</p>
-<p>#box管理命令
-$ vagrant box list   # 查看本地box列表
-$ vagrant box add   # 添加box到列表</p>
-<p>$ vagrant box remove  # 从box列表移除</p>
+                    <h1 id="1stringstringbufferstringbuilder三者的对比">1.String、StringBuffer、StringBuilder三者的对比</h1>
+<p>String:不可变的字符序列；底层使用char[]存储</p>
+<p>StringBuffer:可变的字符序列；线程安全的，效率低；底层使用char[]存储</p>
+<p>StringBuilder:可变的字符序列；jdk5.0新增的，线程不安全的，效率高；底层使用char[]存储</p>
+<h1 id="2stringbuffer与stringbuilder的内存解析">2.StringBuffer与StringBuilder的内存解析</h1>
+<p>以StringBuffer为例：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">String str <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> String<span style="color:#f92672">();</span><span style="color:#75715e">//char[] value = new char[0];
+</span><span style="color:#75715e"></span>String str1 <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> String<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;abc&#34;</span><span style="color:#f92672">);</span><span style="color:#75715e">//char[] value = new char[]{&#39;a&#39;,&#39;b&#39;,&#39;c&#39;};
+</span><span style="color:#75715e"></span>
+StringBuffer sb1 <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> StringBuffer<span style="color:#f92672">();</span><span style="color:#75715e">//char[] value = new char[16];底层创建了一个长度是16的数组。
+</span><span style="color:#75715e"></span>System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>sb1<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">());</span><span style="color:#75715e">//
+</span><span style="color:#75715e"></span>sb1<span style="color:#f92672">.</span><span style="color:#a6e22e">append</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#39;a&#39;</span><span style="color:#f92672">);</span><span style="color:#75715e">//value[0] = &#39;a&#39;;
+</span><span style="color:#75715e"></span>sb1<span style="color:#f92672">.</span><span style="color:#a6e22e">append</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#39;b&#39;</span><span style="color:#f92672">);</span><span style="color:#75715e">//value[1] = &#39;b&#39;;
+</span><span style="color:#75715e"></span>
+StringBuffer sb2 <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> StringBuffer<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;abc&#34;</span><span style="color:#f92672">);</span><span style="color:#75715e">//char[] value = new char[&#34;abc&#34;.length() + 16];
+</span><span style="color:#75715e">//问题1. System.out.println(sb2.length());//3
+</span><span style="color:#75715e">//问题2. 扩容问题:如果要添加的数据底层数组盛不下了，那就需要扩容底层的数组。
+</span><span style="color:#75715e"></span>         默认情况下<span style="color:#960050;background-color:#1e0010">，</span>扩容为原来容量的2倍 <span style="color:#f92672">+</span> 2<span style="color:#960050;background-color:#1e0010">，</span>同时将原数组中的元素复制到新的数组中<span style="color:#960050;background-color:#1e0010">。</span>
+
+指导意义<span style="color:#960050;background-color:#1e0010">：</span>开发中建议大家使用<span style="color:#960050;background-color:#1e0010">：</span>StringBuffer<span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> capacity<span style="color:#f92672">)</span> 或 <span style="color:#a6e22e">StringBuilder</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> capacity<span style="color:#f92672">)</span>
+</code></pre></div><h1 id="3对比stringstringbufferstringbuilder三者的执行效率">3.对比String、StringBuffer、StringBuilder三者的执行效率</h1>
+<p>从<strong>高到低</strong>排列：StringBuilder &gt; StringBuffer &gt; String</p>
+<h1 id="4stringbufferstringbuilder中的常用方法">4.StringBuffer、StringBuilder中的常用方法</h1>
+<ul>
+<li>
+<p>增：append(xxx)</p>
+</li>
+<li>
+<p>删：delete(int start,int end) &ldquo;左闭右开&rdquo;</p>
+</li>
+<li>
+<p>改：setCharAt(int n ,char ch) / replace(int start, int end, String str)</p>
+</li>
+<li>
+<p>查：charAt(int n )</p>
+</li>
+<li>
+<p>插：insert(int offset, xxx)</p>
+</li>
+<li>
+<p>长度：length();</p>
+</li>
+<li>
+<p>遍历：for() + charAt() / toString()</p>
+</li>
+</ul>
 
                 </div>
             </article>
