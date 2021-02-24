@@ -2,35 +2,35 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Toweringx</title>
-    <link>https://toweringx.github.io/post.html</link>
+    <link>https://toweringx.vercel.app/post.html</link>
     <description>Recent content in Posts on Toweringx</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 24 Feb 2021 13:56:26 +0800</lastBuildDate><atom:link href="https://toweringx.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 24 Feb 2021 13:56:26 +0800</lastBuildDate><atom:link href="https://toweringx.vercel.app/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>First</title>
-      <link>https://toweringx.github.io/post/java/first.html</link>
+      <link>https://toweringx.vercel.app/post/java/first.html</link>
       <pubDate>Wed, 24 Feb 2021 13:56:26 +0800</pubDate>
       
-      <guid>https://toweringx.github.io/post/java/first.html</guid>
+      <guid>https://toweringx.vercel.app/post/java/first.html</guid>
       <description></description>
     </item>
     
     <item>
       <title>测试</title>
-      <link>https://toweringx.github.io/post/java/%E6%B5%8B%E8%AF%95.html</link>
+      <link>https://toweringx.vercel.app/post/java/%E6%B5%8B%E8%AF%95.html</link>
       <pubDate>Wed, 24 Feb 2021 13:50:03 +0800</pubDate>
       
-      <guid>https://toweringx.github.io/post/java/%E6%B5%8B%E8%AF%95.html</guid>
+      <guid>https://toweringx.vercel.app/post/java/%E6%B5%8B%E8%AF%95.html</guid>
       <description></description>
     </item>
     
     <item>
       <title>SpringBoot自定义配置文件</title>
-      <link>https://toweringx.github.io/post/java/hello-world.html</link>
+      <link>https://toweringx.vercel.app/post/java/hello-world.html</link>
       <pubDate>Wed, 03 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://toweringx.github.io/post/java/hello-world.html</guid>
+      <guid>https://toweringx.vercel.app/post/java/hello-world.html</guid>
       <description>测试一下</description>
     </item>
     

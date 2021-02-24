@@ -1,2 +1,2 @@
 User-agent: *
-Sitemap: https://toweringx.github.io/sitemap.xml
+Sitemap: https://toweringx.vercel.app/sitemap.xml

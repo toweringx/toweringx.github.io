@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Toweringx</title>
-    <link>https://toweringx.github.io/</link>
+    <link>https://toweringx.vercel.app/</link>
     <description>Recent content on Toweringx</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Wed, 24 Feb 2021 13:56:26 +0800</lastBuildDate>
     
-        <atom:link href="https://toweringx.github.io/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="https://toweringx.vercel.app/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>关于</title>
-      <link>https://toweringx.github.io/about.html</link>
+      <link>https://toweringx.vercel.app/about.html</link>
       <pubDate>Tue, 20 Aug 2019 21:38:52 +0800</pubDate>
       
-      <guid>https://toweringx.github.io/about.html</guid>
+      <guid>https://toweringx.vercel.app/about.html</guid>
       
         <description>&lt;p&gt;这是一个钢铁直男的博客。。。。。&lt;/p&gt;
 </description>
@@ -25,10 +25,10 @@
     
     <item>
       <title>Posts</title>
-      <link>https://toweringx.github.io/post.html</link>
+      <link>https://toweringx.vercel.app/post.html</link>
       <pubDate>Wed, 24 Feb 2021 13:56:26 +0800</pubDate>
       
-      <guid>https://toweringx.github.io/post.html</guid>
+      <guid>https://toweringx.vercel.app/post.html</guid>
       
         <description></description>
       
