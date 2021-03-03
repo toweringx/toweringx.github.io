@@ -6,7 +6,25 @@
     <description>Recent content in Posts on Toweringx</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 10 Jan 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://toweringx.top/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 03 Mar 2021 22:34:52 +0800</lastBuildDate><atom:link href="https://toweringx.top/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>wait()、sleep()、yield()、join()方法的区别</title>
+      <link>https://toweringx.top/post/java/sleep-yield-wait-join.html</link>
+      <pubDate>Wed, 03 Mar 2021 22:34:52 +0800</pubDate>
+      
+      <guid>https://toweringx.top/post/java/sleep-yield-wait-join.html</guid>
+      <description>区别 sleep（）、yield（）、join（）都是Thread类的方法 wait（）是Object类的方法 Tips sleep抱着锁转为阻塞态，同时</description>
+    </item>
+    
+    <item>
+      <title>Juc</title>
+      <link>https://toweringx.top/post/java/juc.html</link>
+      <pubDate>Tue, 02 Mar 2021 17:52:25 +0800</pubDate>
+      
+      <guid>https://toweringx.top/post/java/juc.html</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>常用的几个vagrant命令</title>
       <link>https://toweringx.top/post/vagrant/%E5%B8%B8%E7%94%A8%E7%9A%84%E5%87%A0%E4%B8%AAvagrant%E5%91%BD%E4%BB%A4.html</link>

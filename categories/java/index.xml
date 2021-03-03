@@ -6,7 +6,25 @@
     <description>Recent content in Java on Toweringx</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 06 Jan 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://toweringx.top/categories/java/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 03 Mar 2021 22:34:52 +0800</lastBuildDate><atom:link href="https://toweringx.top/categories/java/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>wait()、sleep()、yield()、join()方法的区别</title>
+      <link>https://toweringx.top/post/java/sleep-yield-wait-join.html</link>
+      <pubDate>Wed, 03 Mar 2021 22:34:52 +0800</pubDate>
+      
+      <guid>https://toweringx.top/post/java/sleep-yield-wait-join.html</guid>
+      <description>区别 sleep（）、yield（）、join（）都是Thread类的方法 wait（）是Object类的方法 Tips sleep抱着锁转为阻塞态，同时</description>
+    </item>
+    
+    <item>
+      <title>Juc</title>
+      <link>https://toweringx.top/post/java/juc.html</link>
+      <pubDate>Tue, 02 Mar 2021 17:52:25 +0800</pubDate>
+      
+      <guid>https://toweringx.top/post/java/juc.html</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>多线程的创建和使用</title>
       <link>https://toweringx.top/post/java/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%88%9B%E5%BB%BA%E5%92%8C%E4%BD%BF%E7%94%A8.html</link>

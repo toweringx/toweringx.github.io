@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>笔记 on Toweringx</title>
+    <link>https://toweringx.top/tags/%E7%AC%94%E8%AE%B0.html</link>
+    <description>Recent content in 笔记 on Toweringx</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 03 Mar 2021 22:34:52 +0800</lastBuildDate><atom:link href="https://toweringx.top/tags/%E7%AC%94%E8%AE%B0/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>wait()、sleep()、yield()、join()方法的区别</title>
+      <link>https://toweringx.top/post/java/sleep-yield-wait-join.html</link>
+      <pubDate>Wed, 03 Mar 2021 22:34:52 +0800</pubDate>
+      
+      <guid>https://toweringx.top/post/java/sleep-yield-wait-join.html</guid>
+      <description>区别 sleep（）、yield（）、join（）都是Thread类的方法 wait（）是Object类的方法 Tips sleep抱着锁转为阻塞态，同时</description>
+    </item>
+    
+  </channel>
+</rss>
