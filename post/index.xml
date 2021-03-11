@@ -6,7 +6,25 @@
     <description>Recent content in Posts on Toweringx</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 03 Mar 2021 22:34:52 +0800</lastBuildDate><atom:link href="https://toweringx.top/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 11 Mar 2021 11:18:20 +0800</lastBuildDate><atom:link href="https://toweringx.top/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>注解的使用</title>
+      <link>https://toweringx.top/post/java/%E6%B3%A8%E8%A7%A3%E7%9A%84%E4%BD%BF%E7%94%A8.html</link>
+      <pubDate>Thu, 11 Mar 2021 11:18:20 +0800</pubDate>
+      
+      <guid>https://toweringx.top/post/java/%E6%B3%A8%E8%A7%A3%E7%9A%84%E4%BD%BF%E7%94%A8.html</guid>
+      <description>1. 注解的理解 jdk 5.0 新增的功能 Annotation 其实就是代码里的特殊标记, 这些标记可以在编译, 类加载, 运行时被读取, 并执行相应的处理。通过使用 Annotatio</description>
+    </item>
+    
+    <item>
+      <title>Java比较器-Comparable,comparator</title>
+      <link>https://toweringx.top/post/java/java%E6%AF%94%E8%BE%83%E5%99%A8-comparablecomparator.html</link>
+      <pubDate>Thu, 11 Mar 2021 10:46:04 +0800</pubDate>
+      
+      <guid>https://toweringx.top/post/java/java%E6%AF%94%E8%BE%83%E5%99%A8-comparablecomparator.html</guid>
+      <description>1.Java比较器的使用背景： Java中的对象，正常情况下，只能进行比较：== 或 != 。不能使用 &amp;gt; 或 &amp;lt; 的。但是在开发场景中，我们需要对多个对象进</description>
+    </item>
+    
     <item>
       <title>wait()、sleep()、yield()、join()方法的区别</title>
       <link>https://toweringx.top/post/java/sleep-yield-wait-join.html</link>

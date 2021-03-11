@@ -1,0 +1,282 @@
+<!DOCTYPE HTML>
+<html lang="zh-cn">
+
+<head><title> 注解的使用 - Toweringx</title><meta name="baidu-site-verification" content="jZRrwlvEpq" />
+<meta name="google-site-verification" content="OcQLxKrUrj5A9hpAdCQuoY-K7f5Ja4LUYt35Kxdwq_E" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="description" content="Toweringx的博客" />
+<meta name="keywords" content="Toweringx的博客" />
+<meta name="generator" content="Tale" />
+<meta name="renderer" content="webkit">
+<meta http-equiv="x-dns-prefetch-control" content="on" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta charset="UTF-8">
+<link rel="shortcut icon" href="/img/favicon.ico">
+<link href="https://cdn.staticfile.org/amazeui/2.7.2/css/amazeui.min.css" rel="stylesheet">
+
+<link rel="stylesheet" href="/css/customui.css">
+
+<link href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+
+<style>
+.hljs{display:block;overflow-x:auto;padding:0.5em;color:#383a42;background:#fafafa}.hljs-comment,.hljs-quote{color:#a0a1a7;}.hljs-doctag,.hljs-keyword,.hljs-formula{color:#a626a4}.hljs-section,.hljs-name,.hljs-selector-tag,.hljs-deletion,.hljs-subst{color:#e45649}.hljs-literal{color:#0184bb}.hljs-string,.hljs-regexp,.hljs-addition,.hljs-attribute,.hljs-meta-string{color:#50a14f}.hljs-built_in,.hljs-class .hljs-title{color:#c18401}.hljs-attr,.hljs-variable,.hljs-template-variable,.hljs-type,.hljs-selector-class,.hljs-selector-attr,.hljs-selector-pseudo,.hljs-number{color:#986801}.hljs-symbol,.hljs-bullet,.hljs-link,.hljs-meta,.hljs-selector-id,.hljs-title{color:#4078f2}.hljs-emphasis{font-style:italic}.hljs-strong{font-weight:bold}.hljs-link{text-decoration:underline}
+</style>
+
+</head>
+
+<body id="blog">
+    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Toweringx的博客</a>
+            
+        </div>
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    
+                    
+                    <li class="menu-item">
+                    
+                    
+                    
+                    <a class="menu-item-link" href="https://toweringx.top/">首页</a>
+                    
+
+                    
+
+                    </li>
+                    
+                    <li class="menu-item">
+                    
+                    
+                    
+                    <a class="menu-item-link" href="https://toweringx.top/post.html">归档</a>
+                    
+
+                    
+
+                    </li>
+                    
+                    <li class="menu-item">
+                    
+                    
+                    
+                    <a class="menu-item-link" href="https://toweringx.top/categories.html">分类</a>
+                    
+
+                    
+
+                    </li>
+                    
+                    <li class="menu-item">
+                    
+                    
+                    
+                    <a class="menu-item-link" href="https://toweringx.top/tags.html">标签</a>
+                    
+
+                    
+
+                    </li>
+                    
+                    <li class="menu-item">
+                    
+                    
+                    
+                    <a class="menu-item-link" href="https://toweringx.top/about.html">关于</a>
+                    
+
+                    
+
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+
+    
+<header class="intro-header" style="background-image: url('https://cdn.jsdelivr.net/gh/XiaoZhengr/mycdn/img/20210224140623.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    
+                    <h1>注解的使用</h1>
+
+                    
+                    <span class="meta">@Toweringx &nbsp;2021-03-11</span>
+                    <div class="tags post-tags">
+                        <div class="post-tags">
+                            <a href="https://toweringx.top/tags/java.html">Java</a>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+    
+
+<div class="container">
+    <div class="am-g am-g-fixed blog-fixed">
+        <div class="am-u-lg-12 am-u-sm-12">
+            <article class="am-article blog-article-p article-trigger">
+                <div id="post-content" class="am-article-bd">
+                    <h1 id="1-注解的理解">1. 注解的理解</h1>
+<ol>
+<li>
+<p>jdk 5.0 新增的功能</p>
+</li>
+<li>
+<p>Annotation 其实就是代码里的特殊标记, 这些标记可以在编译, 类加载, 运行时被读取, 并执行相应的处理。通过使用 Annotation,程序员可以在不改变原逻辑的情况下, 在源文件中嵌入一些补充信息</p>
+</li>
+<li>
+<p>在JavaSE中，注解的使用目的比较简单，例如标记过时的功能，忽略警告等。在JavaEE/Android中注解占据了更重要的角色，例如用来配置应用程序的任何切面，代替JavaEE旧版中所遗留的繁冗代码和XML配置等。</p>
+</li>
+</ol>
+<p><strong>框架 = 注解 + 反射机制 + 设计模式</strong></p>
+<h1 id="2-注解的使用示例">2. 注解的使用示例</h1>
+<ul>
+<li>
+<p>示例一：生成文档相关的注解</p>
+</li>
+<li>
+<p>示例二：在编译时进行格式检查(JDK内置的个基本注解)
+<strong>@Override</strong>: 限定重写父类方法, 该注解只能用于方法
+<strong>@Deprecated</strong>: 用于表示所修饰的元素(类, 方法等)已过时。通常是因为所修饰的结构危险或存在更好的择
+<strong>@SuppressWarnings</strong>: 抑制编译器警告</p>
+</li>
+<li>
+<p>示例：跟踪代码依赖性，实现替代配置文件功能</p>
+</li>
+</ul>
+<h1 id="3-如何自定义注解参照suppresswarnings定义">3. 如何自定义注解：参照@SuppressWarnings定义</h1>
+<ul>
+<li>① 注解声明为：<strong>@interface</strong></li>
+<li>② 内部定义成员，通常使用<strong>value</strong>表示</li>
+<li>③ 可以指定成员的默认值，使用<strong>default</strong>定义</li>
+<li>④ 如果自定义注解没成员，表明是一个标识作用。</li>
+</ul>
+<p>说明：</p>
+<p>如果注解有成员，在使用注解时，需要指明成员的值。</p>
+<p>自定义注解必须配上注解的信息处理流程(使用反射)才意义。</p>
+<p>自定义注解通过都会指明两个元注解：<strong>Retention、Target</strong></p>
+<p>代码举例：</p>
+<pre><code>@Inherited//可继承
+@Repeatable(MyAnnotations.class)//关联MyAnnotations.class（里面是MyAnnotation的数组），使得MyAnnotation编程可重复注解
+@Retention(RetentionPolicy.RUNTIME)//生命周期：运行时
+@Target({TYPE, FIELD, METHOD, PARAMETER, CONSTRUCTOR, LOCAL_VARIABLE,TYPE_PARAMETER,TYPE_USE})//可注解的类型
+public @interface MyAnnotation {
+
+    String value() default &quot;hello&quot;;//默认值
+
+}
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Inherited</span>
+<span style="color:#a6e22e">@Retention</span><span style="color:#f92672">(</span>RetentionPolicy<span style="color:#f92672">.</span><span style="color:#a6e22e">RUNTIME</span><span style="color:#f92672">)</span>
+<span style="color:#a6e22e">@Target</span><span style="color:#f92672">({</span>TYPE<span style="color:#f92672">,</span> FIELD<span style="color:#f92672">,</span> METHOD<span style="color:#f92672">,</span> PARAMETER<span style="color:#f92672">,</span> CONSTRUCTOR<span style="color:#f92672">,</span> LOCAL_VARIABLE<span style="color:#f92672">})</span>
+<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">@interface</span> MyAnnotations <span style="color:#f92672">{</span>
+
+    MyAnnotation<span style="color:#f92672">[]</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">();</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h1 id="4-元注解-对现有的注解进行解释说明的注解">4. 元注解 ：对现有的注解进行解释说明的注解。</h1>
+<p>jdk 提供的<strong>4种元注解</strong>：</p>
+<ul>
+<li>Retention：指定所修饰的 Annotation 的生命周期：SOURCE\CLASS（默认行为\RUNTIME），只有声明为RUNTIME生命周期的注解，才能通过反射获取。</li>
+<li>Target:用于指定被修饰的 Annotation 能用于修饰哪些程序元素</li>
+</ul>
+<blockquote>
+<p>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;出现的频率较低&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-</p>
+</blockquote>
+<ul>
+<li>Documented:表示所修饰的注解在被javadoc解析时，保留下来。</li>
+<li>Inherited:被它修饰的 Annotation 将具继承性。</li>
+</ul>
+<p>**类比：**元数据的概念：String name = &ldquo;Tom&rdquo;;//Tom就是元数据</p>
+<h1 id="5-如何获取注解信息通过发射来进行获取调用">5. 如何获取注解信息:通过发射来进行获取、调用。</h1>
+<blockquote>
+<p>前提：要求此注解的元注解Retention中声明的生命周期状态为：RUNTIME.</p>
+</blockquote>
+<h1 id="6-jdk8中注解的新特性可重复注解类型注解">6. JDK8中注解的新特性：可重复注解、类型注解</h1>
+<h2 id="61-可重复注解">6.1 可重复注解：</h2>
+<blockquote>
+<p>在MyAnnotation上声明@Repeatable，成员值为MyAnnotations.class</p>
+</blockquote>
+<blockquote>
+<p>MyAnnotation的Target和Retention等元注解与MyAnnotations相同。</p>
+</blockquote>
+<h2 id="62-类型注解">6.2 类型注解：</h2>
+<p>ElementType.TYPE_PARAMETER 表示该注解能写在类型变量的声明语句中（如：泛型声明）。</p>
+<p>ElementType.TYPE_USE 表示该注解能写在使用类型的任何语句中。</p>
+
+                </div>
+            </article>
+             <div id="directory-content" class="directory-content">
+             <div id="directory"></div>
+            </div>
+            <hr>
+        </div>
+    </div>
+</div>
+
+	
+	
+<footer class="blog-footer">
+    <div class="blog-text-center">© 2019 <a href="/">Toweringx</a> 由 
+        <a href="https://github.com/gohugoio/hugo" target="_blank">Hugo</a>
+         强力驱动 Theme is 
+        <a href="https://github.com/Heemooo/amaze" target="_blank">Amaze made by heemooo</a>
+    </div>
+</footer>
+<script src="https://cdn.staticfile.org/jquery/3.3.1/jquery.slim.min.js"></script>
+<script src="https://cdn.staticfile.org/highlight.js/9.12.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script>
+    var $body=document.body;var $toggle=document.querySelector(".navbar-toggle");var $navbar=document.querySelector("#huxblog_navbar");var $collapse=document.querySelector(".navbar-collapse");var __HuxNav__={close:function(){$navbar.className=" ";setTimeout(function(){if($navbar.className.indexOf("in")<0){$collapse.style.height="0px"}},400)},open:function(){$collapse.style.height="auto";$navbar.className+=" in"}};$toggle.addEventListener("click",function(a){if($navbar.className.indexOf("in")>0){__HuxNav__.close()}else{__HuxNav__.open()}});document.addEventListener("click",function(a){if(a.target==$toggle){return}if(a.target.className=="icon-bar"){return}__HuxNav__.close()});jQuery(document).ready(function(c){var d=1170;if(c(window).width()>d){var b=c(".navbar-custom").height(),a=c(".intro-header .container").height();c(window).on("scroll",{previousTop:0},function(){var e=c(window).scrollTop(),f=c(".side-catalog");if(e<this.previousTop){if(e>0&&c(".navbar-custom").hasClass("is-fixed")){c(".navbar-custom").addClass("is-visible")}else{c(".navbar-custom").removeClass("is-visible is-fixed")}}else{c(".navbar-custom").removeClass("is-visible");if(e>b&&!c(".navbar-custom").hasClass("is-fixed")){c(".navbar-custom").addClass("is-fixed")}}this.previousTop=e;f.show();if(e>(a+41)){f.addClass("fixed")}else{f.removeClass("fixed")}})}});
+</script>
+<script>
+    $(document).ready(function() {
+        $('pre code').each(function(i, block) {
+            hljs.highlightBlock(block)
+        })
+        $('table').addClass('am-table')
+    });
+</script>
+<script src="/js/headBand.min.js"></script>
+<script>
+    $('.headBand').headBand({
+        'background':'#008aff',
+        'height':"3"
+    });
+</script>
+<script src="https://cdn.bootcss.com/headroom/0.9.4/headroom.min.js"></script>
+<script>
+       var postDirectoryBuild=function(){var b=function a(l,h){var k=[],e=typeof h==="object",g=typeof h==="string",j,f,d;for(f=0,d=l.length;f<d;f++){j=l[f];if((j.nodeType===1||j.nodeType===9)&&(!h||e&&h.test(j.tagName.toLowerCase())||g&&j.tagName.toLowerCase()===h)){k.push(j)}}return k},c=function(e,f,r){var n=[],m=[],h,p,d,j,l,s,o,g,k,q;h=(function(i,C,A){var w=b(i.childNodes,/^h\d$/),x=[],v=1,B=1,z=0,D=1,t="directory"+(Math.random()+"").replace(/\D/,""),B,y,u;while(w.length){u=w.shift();C.push(u.innerHTML);y=+u.tagName.match(/\d/)[0];if(y>v){x.push(1);B+=1}else{if(y===B||y>B&&y<=v){x.push(0);B=B}else{if(y<B){x.push(y-B);B=y}}}z+=x[x.length-1];v=y;u.id=u.id||(t+D++);A.push(u.id)}if(z!==0&&x[0]===1){x[0]=0}return x})(e,n,m);j=p=document.createElement("ul");q=document.createElement("span");q.style="color:#F38181;font-weight:600;";q.innerHTML="目录";p.appendChild(q);dirNum=[];for(g=0,k=h.length;g<k;g++){d=h[g];if(d===1){l=document.createElement("ul");if(!j.lastElementChild){j.appendChild(document.createElement("li"))}j.lastElementChild.appendChild(l);j=l;dirNum.push(0)}else{if(d<0){d*=2;while(d++){if(d%2){dirNum.pop()}j=j.parentNode}}}dirNum[dirNum.length-1]++;s=document.createElement("li");o=document.createElement("a");o.href="#"+m[g];o.innerHTML=!r?n[g]:dirNum.join(".")+" "+n[g];s.appendChild(o);j.appendChild(s)}f.appendChild(p)};c(document.getElementById("post-content"),document.getElementById("directory"),false)};postDirectoryBuild();
+</script>
+<script>
+    var postDirectory = new Headroom(document.getElementById("directory-content"), {
+        tolerance: 5,
+        offset: 240,
+        classes: {
+            initial: "initial",
+            pinned: "pinned",
+            unpinned: "unpinned"
+        }
+    });
+    postDirectory.init();
+</script>
+
+</body>
+
+</html>
