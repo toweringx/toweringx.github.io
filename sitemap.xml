@@ -10,55 +10,62 @@
   
   <url>
     <loc>https://toweringx.top/categories.html</loc>
-    <lastmod>2021-03-11T20:16:08+08:00</lastmod>
+    <lastmod>2021-03-11T22:29:28+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://toweringx.top/post.html</loc>
-    <lastmod>2021-03-11T20:16:08+08:00</lastmod>
+    <lastmod>2021-03-11T22:29:28+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://toweringx.top/tags/powershell.html</loc>
-    <lastmod>2021-03-11T20:16:08+08:00</lastmod>
+    <lastmod>2021-03-11T22:29:28+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://toweringx.top/post/windows/powershell%E7%BE%8E%E5%8C%96.html</loc>
-    <lastmod>2021-03-11T20:16:08+08:00</lastmod>
+    <loc>https://toweringx.top/post/windows/powershell%E4%BD%BF%E7%94%A8sudo%E6%8F%90%E5%8D%87%E4%B8%BA%E7%AE%A1%E7%90%86%E5%91%98%E6%9D%83%E9%99%90.html</loc>
+    <lastmod>2021-03-11T22:29:28+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://toweringx.top/tags.html</loc>
-    <lastmod>2021-03-11T20:16:08+08:00</lastmod>
+    <lastmod>2021-03-11T22:29:28+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://toweringx.top/</loc>
-    <lastmod>2021-03-11T20:16:08+08:00</lastmod>
+    <lastmod>2021-03-11T22:29:28+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://toweringx.top/tags/windows.html</loc>
-    <lastmod>2021-03-11T20:16:08+08:00</lastmod>
+    <lastmod>2021-03-11T22:29:28+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://toweringx.top/categories/windows.html</loc>
+    <lastmod>2021-03-11T22:29:28+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://toweringx.top/post/windows/powershell%E7%BE%8E%E5%8C%96.html</loc>
     <lastmod>2021-03-11T20:16:08+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -221,6 +228,12 @@
   <url>
     <loc>https://toweringx.top/post/java/string%E7%B1%BB%E7%9A%84%E4%BD%BF%E7%94%A8.html</loc>
     <lastmod>2020-01-01T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://toweringx.top/post/java/untitled.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>

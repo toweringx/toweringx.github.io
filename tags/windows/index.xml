@@ -6,7 +6,16 @@
     <description>Recent content in windows on Toweringx</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 11 Mar 2021 20:16:08 +0800</lastBuildDate><atom:link href="https://toweringx.top/tags/windows/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 11 Mar 2021 22:29:28 +0800</lastBuildDate><atom:link href="https://toweringx.top/tags/windows/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>PowerShell使用sudo提升为管理员权限</title>
+      <link>https://toweringx.top/post/windows/powershell%E4%BD%BF%E7%94%A8sudo%E6%8F%90%E5%8D%87%E4%B8%BA%E7%AE%A1%E7%90%86%E5%91%98%E6%9D%83%E9%99%90.html</link>
+      <pubDate>Thu, 11 Mar 2021 22:29:28 +0800</pubDate>
+      
+      <guid>https://toweringx.top/post/windows/powershell%E4%BD%BF%E7%94%A8sudo%E6%8F%90%E5%8D%87%E4%B8%BA%E7%AE%A1%E7%90%86%E5%91%98%E6%9D%83%E9%99%90.html</guid>
+      <description>Windows下能否实现sudo一样的命令，来快速地对某一个标签页开启管理者权限呢？这里要介绍的gsudo就可以实现我们所要的功能。 安装gs</description>
+    </item>
+    
     <item>
       <title>Powershell美化-Fluent Terminal和oh-my-posh</title>
       <link>https://toweringx.top/post/windows/powershell%E7%BE%8E%E5%8C%96.html</link>
