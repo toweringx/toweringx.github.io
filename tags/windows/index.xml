@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>windows on Toweringx</title>
+    <link>https://toweringx.top/tags/windows.html</link>
+    <description>Recent content in windows on Toweringx</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 11 Mar 2021 20:16:08 +0800</lastBuildDate><atom:link href="https://toweringx.top/tags/windows/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Powershell美化-Fluent Terminal和oh-my-posh</title>
+      <link>https://toweringx.top/post/windows/powershell%E7%BE%8E%E5%8C%96.html</link>
+      <pubDate>Thu, 11 Mar 2021 20:16:08 +0800</pubDate>
+      
+      <guid>https://toweringx.top/post/windows/powershell%E7%BE%8E%E5%8C%96.html</guid>
+      <description>1. 安装Fluent Terminal Microsoft Store搜索安装Fluent Terminal 2. 安装字体 安装任意一款PowerLine字体，可以从这个GitHub仓库获取：点此链接</description>
+    </item>
+    
+  </channel>
+</rss>
